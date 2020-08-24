@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import http from "http";
 import next, { NextApiHandler } from "next";
 import mongoose from "mongoose";
+import fileupload from "express-fileupload";
 
 import getRoutes from "./routes/get";
 import postRoutes from "./routes/post";
@@ -24,6 +25,15 @@ class Server {
     const servApp = http.createServer(server);
     server.use(express.static("public"));
     server.use(bodyParser.json());
+    server.use(
+      fileupload({
+        useTempFiles: true,
+        tempFileDir: "/tmp/",
+        limits: { fileSize: 50 * 1024 * 1024 },
+        abortOnLimit: true,
+        responseOnLimit: "File size limit has been reached",
+      })
+    );
     this.database();
     this.get();
     this.post();
@@ -41,9 +51,12 @@ class Server {
 
   post() {
     server.post("/test", postRoutes.test);
+    //login system routes
     server.post("/register", postRoutes.register);
     server.post("/login", postRoutes.login);
     server.post("/authorisation", postRoutes.authorisation);
+    //upload routes
+    server.post("/upload/pizza", postRoutes.pizzaPhotoUpload);
   }
 
   delete() {

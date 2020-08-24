@@ -70,6 +70,20 @@ type body = {
 };
 ```
 
+### Pizza photo uploads
+
+```
+/upload/pizza
+```
+
+#### POST body structure
+
+```
+"Content-Type": "multipart/form-data"
+
+pizzaphoto: file
+```
+
 ## GET
 
 ### Test
