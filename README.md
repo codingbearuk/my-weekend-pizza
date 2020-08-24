@@ -14,12 +14,10 @@
 /test
 ```
 
-#### POST body structure
-
 ```typescript
-type body = {
+interface Body {
   test: any;
-};
+}
 ```
 
 ### Login
@@ -28,13 +26,11 @@ type body = {
 /login
 ```
 
-#### POST body structure
-
 ```typescript
-type body = {
+interface Body {
   email: string;
   password: string;
-};
+}
 ```
 
 ### Register
@@ -43,17 +39,15 @@ type body = {
 /register
 ```
 
-#### POST body structure
-
 ```typescript
-type body = {
+interface Body {
   email: string;
   password: string;
   adress: string;
   city: string;
   postcode: string;
   phone: number;
-};
+}
 ```
 
 ### Authorisation
@@ -62,12 +56,10 @@ type body = {
 /authorisation
 ```
 
-#### POST body structure
-
 ```typescript
-type body = {
+interface Body {
   sessionID: string;
-};
+}
 ```
 
 ### Pizza photo uploads
@@ -76,12 +68,25 @@ type body = {
 /upload/pizza
 ```
 
-#### POST body structure
-
 ```
 "Content-Type": "multipart/form-data"
 
 pizzaphoto: file
+```
+
+### Add new pizza
+
+```
+/panel/add-pizza
+```
+
+```typescript
+interface Body {
+  name: string;
+  ingredients: Array<string>;
+  price: number;
+  image: string;
+}
 ```
 
 ## GET
@@ -92,6 +97,24 @@ pizzaphoto: file
 /test
 ```
 
+### GET single pizza
+
+```
+/pizza/pizzaID
+```
+
+example:
+
+```
+/pizza/5f43a63dc9b80c60232471dc
+```
+
+### GET all pizzas
+
+```
+/pizzas
+```
+
 ## DELETE
 
 ### Test
@@ -99,8 +122,6 @@ pizzaphoto: file
 ```
 /test
 ```
-
-#### DELETE body structure
 
 ```typescript
 type body = {

@@ -46,17 +46,23 @@ class Server {
 
   get() {
     server.get("/test", getRoutes.test);
+    // get pizzas
+    server.get("/pizza/:pizzaID", getRoutes.getOnePizza);
+    server.get("/pizzas", getRoutes.getPizzas);
+    // next routes
     server.get("*", this.handle);
   }
 
   post() {
     server.post("/test", postRoutes.test);
-    //login system routes
+    // login system routes
     server.post("/register", postRoutes.register);
     server.post("/login", postRoutes.login);
     server.post("/authorisation", postRoutes.authorisation);
-    //upload routes
+    // upload routes
     server.post("/upload/pizza", postRoutes.pizzaPhotoUpload);
+    // panel routes
+    server.post("/panel/add-pizza", postRoutes.addPizza);
   }
 
   delete() {
