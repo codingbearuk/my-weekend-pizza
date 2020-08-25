@@ -4,6 +4,7 @@ import login from "./login";
 import authorisation from "./authorisation";
 import pizzaPhotoUpload from "./pizza-photo-upload";
 import addPizza from "./add-pizza";
+import saucePhotoUpload from "./sauce-photo-upload";
 
 const index = {
   test,
@@ -12,6 +13,7 @@ const index = {
   authorisation,
   pizzaPhotoUpload,
   addPizza,
+  saucePhotoUpload,
 };
 
 export default index;

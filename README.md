@@ -4,11 +4,31 @@
 - [x] run command npm install,
 - [x] npm run dev,
 
+# Table of contents
+
+## API ROUTES
+
+### POST
+
+- [Test post route](###Test-POST)
+- [Login route](###Login)
+- [Register route](###Register)
+- [Authorisation route](###Authorisation)
+- [pizza photo upload route](###Pizza-photo-uploads)
+- [sauce photo upload route](###Sauce-photo-uploads)
+- [add new pizza route](###Add-new-pizza)
+
+### GET
+
+- [Test get route](###Test-GET)
+- [get single pizza route](###GET-single-pizza)
+- [get all pizzas route](###GET-all-pizzas)
+
 # API Routes
 
 ## POST
 
-### Test
+### Test POST
 
 ```
 /test
@@ -71,7 +91,21 @@ interface Body {
 ```
 "Content-Type": "multipart/form-data"
 
-pizzaphoto: file
+pizzaphoto1: file
+pizzaphoto2: file
+```
+
+### Sauce photo uploads
+
+```
+/upload/sauce
+```
+
+```
+"Content-Type": "multipart/form-data"
+
+saucephoto1: file
+saucephoto2: file
 ```
 
 ### Add new pizza
@@ -91,7 +125,7 @@ interface Body {
 
 ## GET
 
-### Test
+### Test GET
 
 ```
 /test
