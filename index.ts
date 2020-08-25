@@ -64,6 +64,7 @@ class Server {
     server.post("/upload/sauce", postRoutes.saucePhotoUpload);
     // panel routes
     server.post("/panel/add-pizza", postRoutes.addPizza);
+    server.post("/panel/add-sauce", postRoutes.addSauce);
   }
 
   delete() {

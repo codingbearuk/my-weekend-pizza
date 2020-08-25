@@ -123,6 +123,21 @@ interface Body {
 }
 ```
 
+### Add new sauce
+
+```
+/panel/add-sauce
+```
+
+```typescript
+interface Body {
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+}
+```
+
 ## GET
 
 ### Test GET
