@@ -26,6 +26,12 @@
 - [get one sauce route](#GET-one-sauce)
 - [get all sauces route](#GET-all-sauces)
 
+### DELETE
+
+- [Test delete route](#Test-delete)
+- [delete pizza](#Delete-Pizza)
+- [delete sauce](#Delete-Sauce)
+
 # API Routes
 
 ## POST
@@ -186,7 +192,7 @@ example:
 
 ## DELETE
 
-### Test
+### Test delete
 
 ```
 /test
@@ -195,5 +201,29 @@ example:
 ```typescript
 type body = {
   test: any;
+};
+```
+
+### Delete Pizza
+
+```
+/pizza
+```
+
+```typescript
+type body = {
+  pizzaID = string;
+};
+```
+
+### Delete Sauce
+
+```
+/sauce
+```
+
+```typescript
+type body = {
+  sauceID = string;
 };
 ```
