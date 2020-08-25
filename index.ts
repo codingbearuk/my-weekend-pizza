@@ -49,6 +49,9 @@ class Server {
     // get pizzas
     server.get("/pizza/:pizzaID", getRoutes.getOnePizza);
     server.get("/pizzas", getRoutes.getPizzas);
+    // get sauce
+    server.get("/sauce/:sauceID", getRoutes.getOneSauce);
+    server.get("/sauces", getRoutes.getSauces);
     // next routes
     server.get("*", this.handle);
   }

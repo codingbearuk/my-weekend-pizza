@@ -10,19 +10,21 @@
 
 ### POST
 
-- [Test post route](###Test-POST)
-- [Login route](###Login)
-- [Register route](###Register)
-- [Authorisation route](###Authorisation)
-- [pizza photo upload route](###Pizza-photo-uploads)
-- [sauce photo upload route](###Sauce-photo-uploads)
-- [add new pizza route](###Add-new-pizza)
+- [Test post route](#Test-POST)
+- [Login route](#Login)
+- [Register route](#Register)
+- [Authorisation route](#Authorisation)
+- [pizza photo upload route](#Pizza-photo-uploads)
+- [sauce photo upload route](#Sauce-photo-uploads)
+- [add new pizza route](#Add-new-pizza)
 
 ### GET
 
-- [Test get route](###Test-GET)
-- [get single pizza route](###GET-single-pizza)
-- [get all pizzas route](###GET-all-pizzas)
+- [Test get route](#Test-GET)
+- [get single pizza route](#GET-single-pizza)
+- [get all pizzas route](#GET-all-pizzas)
+- [get one sauce route](#GET-one-sauce)
+- [get all sauces route](#GET-all-sauces)
 
 # API Routes
 
@@ -162,6 +164,24 @@ example:
 
 ```
 /pizzas
+```
+
+### GET single sauce
+
+```
+/sauce/sauceID
+```
+
+example:
+
+```
+/sauce/5f43a63dc9b80c60232471dc
+```
+
+### GET all sauces
+
+```
+/sauces
 ```
 
 ## DELETE
