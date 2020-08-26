@@ -4,12 +4,12 @@ import { StyledContainer } from "./@navbar.t";
 import colors from "styled/colors";
 
 export const Container = styled.nav<{ isScrolled: boolean }>`
-  background: ${({ isScrolled }) =>
-    isScrolled ? colors.transparetnWhite : "none"};
   ${(p) =>
     p.isScrolled &&
     css`
       backdrop-filter: blur(5px);
+      background: ${colors.transparetnWhite};
+      flex-direction: row-reverse;
     `};
   position: fixed;
   width: 100vw;
