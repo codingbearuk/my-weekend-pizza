@@ -1,11 +1,14 @@
 import React, { FunctionComponent } from "react";
+
 import BasicLayout from "../layouts/basic.layout";
+import Navbar from "components/navbar";
+import WelcomeScreen from "components/welcome-screen";
 
 const IndexPage: FunctionComponent = () => {
   return (
     <BasicLayout>
-      <h1>index page</h1>
-      <p>test text</p>
+      <Navbar />
+      <WelcomeScreen />
     </BasicLayout>
   );
 };

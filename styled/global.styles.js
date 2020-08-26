@@ -17,6 +17,8 @@ const GlobalStyle = createGlobalStyle`
   body{
     background: ${background};
     color: ${white};
+    margin: 0;
+    padding: 0;
   }
   h1, h2 {
     font-family: 'bradley hand'
