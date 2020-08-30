@@ -8,4 +8,9 @@ export const Container = styled.button<{ color?: string }>`
   background: none;
   color: ${(p) => p.color || colors.white};
   cursor: pointer;
+
+  :focus {
+    background: ${(p) => p.color || colors.white};
+    color: ${(p) => p.color || colors.black};
+  }
 `;
