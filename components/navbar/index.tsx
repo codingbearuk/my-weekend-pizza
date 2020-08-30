@@ -11,9 +11,9 @@ const Navbar: FunctionComponent<IndexComponent> = ({}) => {
 
   const dispatch = useDispatch();
 
-  const handleMainMenuButton = (): void => {
+  const handleMainMenuButton = useCallback(() => {
     dispatch(mainMenuState ? closeMenu() : openMenu());
-  };
+  }, []);
 
   return (
     <View

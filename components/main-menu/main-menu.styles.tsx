@@ -11,6 +11,7 @@ export const Container = styled.div<{}>`
   backdrop-filter: blur(10px);
   background: ${colors.transparetnWhite};
   z-index: 100;
+  opacity: 0;
 `;
 
 export const MenuBox = styled.nav<{}>`
