@@ -17,7 +17,7 @@ export const Container = styled.nav<{ isScrolled: boolean }>`
   display: flex;
   align-items: center;
   padding: 0 5%;
-
+  z-index: 99;
   svg {
     color: ${colors.white};
     cursor: pointer;
