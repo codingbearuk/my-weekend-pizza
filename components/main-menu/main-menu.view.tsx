@@ -1,7 +1,9 @@
 import React, { FunctionComponent, useRef, RefObject, useEffect } from "react";
+import { X } from "react-bootstrap-icons";
 
-import { Container, MenuBox } from "./main-menu.styles";
+import { Container, MenuBox, CloseContainer } from "./main-menu.styles";
 import { View } from "./@main-menu.t";
+import language from "language-sources";
 
 const MainMenu: FunctionComponent<View> = (p) => {
   const containerRef: RefObject<HTMLDivElement> = useRef(null);
@@ -17,7 +19,15 @@ const MainMenu: FunctionComponent<View> = (p) => {
         ref={containerRef}
         onClick={() => p.animations.close(containerRef, menuBoxRef)}
       ></Container>
-      <MenuBox ref={menuBoxRef}></MenuBox>
+      <MenuBox ref={menuBoxRef}>
+        <CloseContainer>
+          <X
+            size="20px"
+            onClick={() => p.animations.close(containerRef, menuBoxRef)}
+          />
+        </CloseContainer>
+        <h1>{language.menu.header}</h1>
+      </MenuBox>
     </>
   );
 };

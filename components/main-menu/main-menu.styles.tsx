@@ -23,4 +23,18 @@ export const MenuBox = styled.nav<{}>`
   width: 30vw;
   height: 100vh;
   z-index: 101;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+
+  h1 {
+    text-transform: uppercase;
+  }
+`;
+
+export const CloseContainer = styled.div<{}>`
+  position: absolute;
+  right: 5px;
+  top: 5px;
 `;

@@ -5,6 +5,9 @@ const eng: Language = {
     signIn: "sign in",
     signUp: "sign up",
   },
+  menu: {
+    header: "site menu",
+  },
 };
 
 export default eng;

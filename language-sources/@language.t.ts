@@ -3,6 +3,9 @@ type Language = {
     signIn: string;
     signUp: string;
   };
+  menu: {
+    header: string;
+  };
 };
 
 export default Language;

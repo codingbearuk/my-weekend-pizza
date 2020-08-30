@@ -5,7 +5,8 @@ export const Container = styled.div`
   width: 100vw;
   height: 100vh;
   background: url(/images/Image1@2x.png);
-  background-size: cover;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   z-index: 50;
 `;
 
