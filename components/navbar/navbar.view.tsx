@@ -8,18 +8,25 @@ import Cart from "components/UI/cart";
 import Separator from "components/UI/separator";
 import Button from "components/UI/button";
 import MainMenu from "components/main-menu";
+import SignInMenu from "components/sign-in-menu";
 
-const View: FunctionComponent<ViewComponent> = ({ handlers, state }) => {
+const View: FunctionComponent<ViewComponent> = ({ handlers, state, refs }) => {
   return (
     <Container isScrolled={false}>
       <FilterLeft size="40px" onClick={handlers.handleMainMenuButton} />
       <Separator width={20} />
       <Cart iconSize={20} numberSize={20} />
       <Separator width={20} />
-      <Button text={language.navbar.signIn} onClick={() => {}} />
+      <div ref={refs.signInButton}>
+        <Button
+          text={language.navbar.signIn}
+          onClick={handlers.handleSignInMenuButton}
+        />
+      </div>
       <Separator width={20} />
       <Button text={language.navbar.signUp} onClick={() => {}} />
       {state.mainMenuState && <MainMenu />}
+      {state.signInMenuState && <SignInMenu buttonRef={refs.signInButton} />}
     </Container>
   );
 };

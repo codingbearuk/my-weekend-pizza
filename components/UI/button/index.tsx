@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, RefObject } from "react";
 
 import { Container } from "./button.styles";
 
@@ -8,7 +8,7 @@ interface ButtonProps {
 }
 
 const Button: FunctionComponent<ButtonProps> = (p) => {
-  return <Container>{p.text}</Container>;
+  return <Container onClick={p.onClick}>{p.text}</Container>;
 };
 
 export default Button;
