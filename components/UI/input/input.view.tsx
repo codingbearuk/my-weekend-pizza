@@ -16,6 +16,7 @@ const View: React.FunctionComponent<{
         <Icon />
       </IconContainer>
       <InputElement
+        name={p.title}
         type={p.type}
         onChange={p.handleValueState}
         placeholder={p.title}

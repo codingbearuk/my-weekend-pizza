@@ -15,3 +15,11 @@ export const Container = styled.div<{
   overflow: hidden;
   height: 0;
 `;
+
+export const AroundContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 100px;
+  left: 0;
+`;

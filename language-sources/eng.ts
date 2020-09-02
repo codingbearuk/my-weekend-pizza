@@ -6,9 +6,17 @@ const eng: Language = {
     signUp: "sign up",
   },
   login: {
-    login: "username",
+    login: "email address",
     password: "password",
     button: "sign in",
+  },
+  signUp: {
+    email: "email address",
+    password: "password",
+    address: "address",
+    city: "city/town",
+    postcode: "postcode",
+    button: "create account",
   },
   menu: {
     header: "site menu",

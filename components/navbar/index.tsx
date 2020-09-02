@@ -40,7 +40,7 @@ const Navbar: FunctionComponent<IndexComponent> = (p) => {
 
   const handleSignUpMenuButton = useCallback(() => {
     dispatch(signUpMenuState ? menuOFF() : signUpMenuON());
-  }, [signInMenuState]);
+  }, [signUpMenuState]);
 
   return (
     <View

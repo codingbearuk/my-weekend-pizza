@@ -23,6 +23,7 @@ export function reducer(state: State, action: Action) {
       return state;
     case "INPUT_PASSWORD":
       state = { ...state, password: action.payload.password };
+      return state;
     default:
       return state;
   }

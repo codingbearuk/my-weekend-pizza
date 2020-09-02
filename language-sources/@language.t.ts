@@ -8,6 +8,14 @@ type Language = {
     password: string;
     button: string;
   };
+  signUp: {
+    email: string;
+    password: string;
+    address: string;
+    city: string;
+    postcode: string;
+    button: string;
+  };
   menu: {
     header: string;
   };
