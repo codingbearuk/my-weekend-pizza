@@ -9,6 +9,7 @@ import Separator from "components/UI/separator";
 import Button from "components/UI/button";
 import MainMenu from "components/main-menu";
 import SignInMenu from "components/sign-in-menu";
+import SignUpMenu from "components/sign-up-menu";
 
 const View: FunctionComponent<ViewComponent> = ({ handlers, state, refs }) => {
   return (
@@ -24,9 +25,15 @@ const View: FunctionComponent<ViewComponent> = ({ handlers, state, refs }) => {
         />
       </div>
       <Separator width={20} />
-      <Button text={language.navbar.signUp} onClick={() => {}} />
+      <div ref={refs.signUpButton}>
+        <Button
+          text={language.navbar.signUp}
+          onClick={handlers.handleSignUpMenuButton}
+        />
+      </div>
       {state.mainMenuState && <MainMenu />}
       {state.signInMenuState && <SignInMenu buttonRef={refs.signInButton} />}
+      {state.signUpMenuState && <SignUpMenu buttonRef={refs.signUpButton} />}
     </Container>
   );
 };

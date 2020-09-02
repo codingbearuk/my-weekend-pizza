@@ -21,10 +21,14 @@ const Navbar: FunctionComponent<IndexComponent> = (p) => {
   const signInMenuState = useSelector(
     (s: RootState) => s.navigationMenues.signINMenu
   );
+  const signUpMenuState = useSelector(
+    (s: RootState) => s.navigationMenues.signUPMenu
+  );
 
   const dispatch = useDispatch();
 
   const signInButton: RefObject<HTMLDivElement> = useRef(null);
+  const signUpButton: RefObject<HTMLDivElement> = useRef(null);
 
   const handleMainMenuButton = useCallback(() => {
     dispatch(mainMenuState ? closeMenu() : openMenu());
@@ -34,17 +38,23 @@ const Navbar: FunctionComponent<IndexComponent> = (p) => {
     dispatch(signInMenuState ? menuOFF() : signInMenuON());
   }, [signInMenuState]);
 
+  const handleSignUpMenuButton = useCallback(() => {
+    dispatch(signUpMenuState ? menuOFF() : signUpMenuON());
+  }, [signInMenuState]);
+
   return (
     <View
       handlers={{
         handleMainMenuButton,
         handleSignInMenuButton,
+        handleSignUpMenuButton,
       }}
       state={{
         mainMenuState,
         signInMenuState,
+        signUpMenuState,
       }}
-      refs={{ signInButton }}
+      refs={{ signInButton, signUpButton }}
     />
   );
 };
