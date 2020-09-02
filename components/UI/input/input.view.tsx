@@ -6,6 +6,7 @@ import { Container, IconContainer, InputElement } from "./input.styles";
 const View: React.FunctionComponent<{
   iconName: string;
   title: string;
+  type?: string;
   handleValueState: (e: React.FormEvent<HTMLInputElement>) => void;
 }> = (p) => {
   const Icon = BSIcon[p.iconName];
@@ -14,7 +15,11 @@ const View: React.FunctionComponent<{
       <IconContainer>
         <Icon />
       </IconContainer>
-      <InputElement onChange={p.handleValueState} placeholder={p.title} />
+      <InputElement
+        type={p.type}
+        onChange={p.handleValueState}
+        placeholder={p.title}
+      />
     </Container>
   );
 };

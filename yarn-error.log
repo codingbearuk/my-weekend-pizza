@@ -2,7 +2,7 @@ Arguments:
   /home/kamil/.nvm/versions/node/v12.13.1/bin/node /home/kamil/.nvm/versions/node/v12.13.1/bin/yarn dev
 
 PATH: 
-  /home/kamil/Pulpit/projects/my weekend pizza/node_modules/.bin:/tmp/yarn--1598809286467-0.9069298101492049:/home/kamil/Pulpit/projects/my weekend pizza/node_modules/.bin:/home/kamil/.config/yarn/link/node_modules/.bin:/home/kamil/.yarn/bin:/home/kamil/.nvm/versions/node/v12.13.1/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/kamil/.nvm/versions/node/v12.13.1/lib/node_modules/npm/bin/node-gyp-bin:/home/kamil/.nvm/versions/node/v12.13.1/bin/node_modules/npm/bin/node-gyp-bin:/home/kamil/.nvm/versions/node/v12.13.1/bin:/home/kamil/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  /home/kamil/Pulpit/projects/my weekend pizza/node_modules/.bin:/tmp/yarn--1598944446641-0.6377276004674177:/home/kamil/Pulpit/projects/my weekend pizza/node_modules/.bin:/home/kamil/.config/yarn/link/node_modules/.bin:/home/kamil/.yarn/bin:/home/kamil/.nvm/versions/node/v12.13.1/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/kamil/.nvm/versions/node/v12.13.1/lib/node_modules/npm/bin/node-gyp-bin:/home/kamil/.nvm/versions/node/v12.13.1/bin/node_modules/npm/bin/node-gyp-bin:/home/kamil/.nvm/versions/node/v12.13.1/bin:/home/kamil/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 Yarn version: 
   1.21.1

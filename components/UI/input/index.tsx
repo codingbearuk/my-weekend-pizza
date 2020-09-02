@@ -5,6 +5,7 @@ import View from "./input.view";
 const Input: React.FunctionComponent<{
   iconName: string;
   title: string;
+  type?: string;
   callback: (value: string) => void;
 }> = (p) => {
   function handleValueState(e: React.FormEvent<HTMLInputElement>): void {
