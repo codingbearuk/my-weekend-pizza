@@ -3,6 +3,11 @@ type Language = {
     signIn: string;
     signUp: string;
   };
+  login: {
+    login: string;
+    password: string;
+    button: string;
+  };
   menu: {
     header: string;
   };

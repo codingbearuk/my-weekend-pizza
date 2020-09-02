@@ -9,3 +9,9 @@ export const Container = styled.div<{}>`
   align-items: center;
   justify-content: center;
 `;
+
+export const ArrowButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+`;

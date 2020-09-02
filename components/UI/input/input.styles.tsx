@@ -11,7 +11,7 @@ export const Container = styled.div<{}>`
 
 export const IconContainer = styled.div<{}>`
   background: ${colors.white};
-  border-radius: 5px 0 0 5px;
+  border-radius: 50px 0 0 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +21,7 @@ export const IconContainer = styled.div<{}>`
 `;
 
 export const InputElement = styled.input<{}>`
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 50px 50px 0;
   border: 1px solid ${colors.white};
   background: none;
   outline: none;
