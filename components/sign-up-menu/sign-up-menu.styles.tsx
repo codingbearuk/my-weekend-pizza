@@ -15,3 +15,15 @@ export const ButtonContainer = styled.div`
   justify-content: flex-end;
   width: 100%;
 `;
+
+export const ErrorBox = styled.div`
+  color: ${colors.red};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  font-weight: 100;
+  font-size: 0.7em;
+  text-align: center;
+`;

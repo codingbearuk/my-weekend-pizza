@@ -14,7 +14,16 @@ type Language = {
     address: string;
     city: string;
     postcode: string;
+    phone: string;
     button: string;
+    errors: {
+      email: string;
+      password: string;
+      address: string;
+      city: string;
+      postcode: string;
+      phone: string;
+    };
   };
   menu: {
     header: string;

@@ -6,6 +6,7 @@ const Input: React.FunctionComponent<{
   iconName: string;
   title: string;
   type?: string;
+  name?: string;
   callback: (value: string, inputName?: string) => void;
 }> = (p) => {
   function handleValueState(e: React.FormEvent<HTMLInputElement>): void {

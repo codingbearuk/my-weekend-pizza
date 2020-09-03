@@ -16,7 +16,17 @@ const eng: Language = {
     address: "address",
     city: "city/town",
     postcode: "postcode",
+    phone: "phone",
     button: "create account",
+    errors: {
+      email: "this is not correct email format",
+      password:
+        "password should contain at least one digit, 1 lowercase character, 1 uppercase character, 1 special character and minimum 8 characters",
+      address: "insert your address",
+      city: "insert your city",
+      postcode: "insert correct UK postal code",
+      phone: "insert correct UK mobile phone number",
+    },
   },
   menu: {
     header: "site menu",

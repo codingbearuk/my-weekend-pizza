@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 import UserModel from "../../../models/user.model";
 
 const register: Route = async (req, res) => {
-  const { email, password, adress, city, postcode, phone } = req.body;
+  const { email, password, address, city, postcode, phone } = req.body;
   const salt = bcrypt.genSaltSync(15);
   const hash = bcrypt.hashSync(password, salt);
   const isUserExist = await UserModel.findOne({ email });
@@ -12,13 +12,13 @@ const register: Route = async (req, res) => {
   if (isUserExist) {
     res.status(200).json({
       status: "error",
-      msg: "user alredy exist",
+      msg: "email alredy exist in database",
     });
   } else {
     const newUser = new UserModel({
       email,
       password: hash,
-      adress,
+      address,
       city,
       postcode,
       phone,

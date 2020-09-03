@@ -7,6 +7,7 @@ const View: React.FunctionComponent<{
   iconName: string;
   title: string;
   type?: string;
+  name?: string;
   handleValueState: (e: React.FormEvent<HTMLInputElement>) => void;
 }> = (p) => {
   const Icon = BSIcon[p.iconName];
@@ -16,7 +17,7 @@ const View: React.FunctionComponent<{
         <Icon />
       </IconContainer>
       <InputElement
-        name={p.title}
+        name={p.name}
         type={p.type}
         onChange={p.handleValueState}
         placeholder={p.title}
