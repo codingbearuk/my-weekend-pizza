@@ -24,6 +24,10 @@ type Language = {
       postcode: string;
       phone: string;
     };
+    popup: {
+      title: string;
+      msg: string;
+    };
   };
   menu: {
     header: string;

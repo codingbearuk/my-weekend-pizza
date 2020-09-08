@@ -1,5 +1,9 @@
 import React, { useReducer, useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { showPopup } from "redux/actions/popup.action";
+import { menuOFF } from "redux/actions/navigation.actions";
 import post from "api-comunication/post";
+import language from "language-sources";
 
 import View from "./sign-up-menu.view";
 import { reducer, Action, initialState } from "./sign-up-menu.state";
@@ -14,6 +18,8 @@ const SignUpMenu: React.FunctionComponent<{
 
   const positionLeft: number = p.buttonRef.current.offsetLeft;
   const buttonWidth: number = p.buttonRef.current.offsetWidth;
+
+  const reduxDispatch = useDispatch();
 
   function handleInputs(value: string, name: string): void {
     if (name === "email") {
@@ -84,6 +90,13 @@ const SignUpMenu: React.FunctionComponent<{
         });
       } else {
         setLoading(false);
+        reduxDispatch(
+          showPopup({
+            title: language.signUp.popup.title,
+            msg: language.signUp.popup.msg,
+          })
+        );
+        reduxDispatch(menuOFF());
       }
     } else setLoading(false);
   }

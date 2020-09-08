@@ -27,6 +27,10 @@ const eng: Language = {
       postcode: "insert correct UK postal code",
       phone: "insert correct UK mobile phone number",
     },
+    popup: {
+      title: "Register",
+      msg: "Your account has been succesfully created. Now you can sign in",
+    },
   },
   menu: {
     header: "site menu",
