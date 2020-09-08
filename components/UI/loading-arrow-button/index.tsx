@@ -14,7 +14,7 @@ const ArrowButtonLoading: React.FunctionComponent<{
     <Container color={p.color}>
       Loading
       <Separator width={10} />
-      <UseAnimation animation={loading} pathCss={`stroke: ${white}`} />
+      <UseAnimation animation={loading} />
     </Container>
   );
 };

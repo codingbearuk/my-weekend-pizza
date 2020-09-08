@@ -11,4 +11,8 @@ export const Container = styled.div<{ color?: string }>`
   font-size: 1.2em;
   cursor: pointer;
   outline: none;
+
+  svg {
+    color: ${(p) => p.color || colors.white};
+  }
 `;
