@@ -1,6 +1,7 @@
 export interface State {
   login: string;
   password: string;
+  loading: boolean;
 }
 
 export interface Action {
@@ -8,12 +9,14 @@ export interface Action {
   payload: {
     login?: string;
     password?: string;
+    loading?: boolean;
   };
 }
 
 export const initialState: State = {
   login: "",
   password: "",
+  loading: false,
 };
 
 export function reducer(state: State, action: Action) {
@@ -24,6 +27,8 @@ export function reducer(state: State, action: Action) {
     case "INPUT_PASSWORD":
       state = { ...state, password: action.payload.password };
       return state;
+    case "SET_LOADING":
+      state = { ...state, loading: action.payload.loading };
     default:
       return state;
   }

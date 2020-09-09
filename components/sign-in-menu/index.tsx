@@ -7,6 +7,8 @@ import React, {
 
 import View from "./sign-in-menu.view";
 import { initialState, reducer, Action } from "./sign-in-menu.state";
+import post from "api-comunication/post";
+import createLoginEvent from "custom-events/login.event";
 
 const SignInMenu: FunctionComponent<{
   buttonRef: RefObject<HTMLDivElement>;
@@ -36,12 +38,35 @@ const SignInMenu: FunctionComponent<{
     dispatch(action);
   }, []);
 
+  const handleLogin: VoidFunction = useCallback(async () => {
+    interface Data extends Object {
+      status?: string;
+      msg?: string;
+      sessionID?: string;
+    }
+
+    dispatch({ type: "SET_LOADING", payload: { loading: true } });
+    const data: Data = await post("/login", {
+      email: state.login,
+      password: state.password,
+    });
+    console.log(data);
+    if (data.status === "ok") {
+      dispatch({ type: "SET_LOADING", payload: { loading: false } });
+      createLoginEvent(data.sessionID);
+    } else {
+      dispatch({ type: "SET_LOADING", payload: { loading: false } });
+    }
+  }, [state]);
+
   return (
     <View
       positionLeft={positionLeft}
       buttonWidth={buttonWidth}
       handleLoginInput={handleLoginInput}
       handlePasswordInput={handlePasswordInput}
+      handleLogin={handleLogin}
+      isLoading={state.loading}
     />
   );
 };

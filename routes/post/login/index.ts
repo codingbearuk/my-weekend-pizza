@@ -12,7 +12,7 @@ const login: Route = async (req, res) => {
   if (!user) {
     res.status(200).json({
       status: "error",
-      msg: "user not exist",
+      msg: `user ${email} doesn't exist`,
     });
   } else {
     const isMatch = bcrypt.compareSync(password, user.password);

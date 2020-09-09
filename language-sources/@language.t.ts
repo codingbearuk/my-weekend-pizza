@@ -7,6 +7,7 @@ type Language = {
     login: string;
     password: string;
     button: string;
+    loading: string;
   };
   signUp: {
     email: string;

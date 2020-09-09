@@ -1,4 +1,4 @@
-import { RefObject } from "react";
+import { RefObject } from 'react';
 
 export interface StyledContainer {
   readonly isScrolled: boolean;
@@ -14,6 +14,8 @@ export interface ViewComponent {
     mainMenuState: boolean;
     signInMenuState: boolean;
     signUpMenuState: boolean;
+    isUserLoggedState: boolean;
+    emailState: string;
   };
   refs: {
     signInButton: RefObject<HTMLDivElement>;

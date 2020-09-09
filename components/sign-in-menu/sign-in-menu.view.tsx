@@ -3,6 +3,7 @@ import Menu from "components/UI/menu";
 import Input from "components/UI/input";
 import Separator from "components/UI/separator";
 import ArrowButton from "components/UI/arrow-button";
+import Loading from "components/UI/loading-arrow-button";
 import language from "language-sources";
 
 import { Container, ArrowButtonContainer } from "./sign-in-menu.styles";
@@ -12,6 +13,8 @@ const View: FunctionComponent<{
   buttonWidth: number;
   handleLoginInput: (value: string) => void;
   handlePasswordInput: (value: string) => void;
+  handleLogin: () => void;
+  isLoading: boolean;
 }> = (p) => {
   return (
     <Menu positionLeft={p.positionLeft} buttonWidth={p.buttonWidth}>
@@ -25,12 +28,18 @@ const View: FunctionComponent<{
         <Input
           title={language.login.password}
           iconName="LockFill"
-          callback={p.handleLoginInput}
+          callback={p.handlePasswordInput}
           type="password"
         />
         <Separator height={20} />
         <ArrowButtonContainer>
-          <ArrowButton onClick={() => {}}>{language.login.button}</ArrowButton>
+          {p.isLoading ? (
+            <Loading></Loading>
+          ) : (
+            <ArrowButton onClick={p.handleLogin}>
+              {language.login.button}
+            </ArrowButton>
+          )}
         </ArrowButtonContainer>
       </Container>
     </Menu>

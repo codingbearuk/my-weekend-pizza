@@ -9,6 +9,7 @@ const eng: Language = {
     login: "email address",
     password: "password",
     button: "sign in",
+    loading: "sending data",
   },
   signUp: {
     email: "email address",

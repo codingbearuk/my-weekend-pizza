@@ -2,7 +2,7 @@ Arguments:
   /home/kamil/.nvm/versions/node/v12.13.1/bin/node /home/kamil/.nvm/versions/node/v12.13.1/bin/yarn dev
 
 PATH: 
-  /home/kamil/Pulpit/projects/my weekend pizza/node_modules/.bin:/tmp/yarn--1598944446641-0.6377276004674177:/home/kamil/Pulpit/projects/my weekend pizza/node_modules/.bin:/home/kamil/.config/yarn/link/node_modules/.bin:/home/kamil/.yarn/bin:/home/kamil/.nvm/versions/node/v12.13.1/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/kamil/.nvm/versions/node/v12.13.1/lib/node_modules/npm/bin/node-gyp-bin:/home/kamil/.nvm/versions/node/v12.13.1/bin/node_modules/npm/bin/node-gyp-bin:/home/kamil/.nvm/versions/node/v12.13.1/bin:/home/kamil/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  /home/kamil/Pulpit/projects/my weekend pizza/node_modules/.bin:/tmp/yarn--1599547765541-0.8599653409513734:/home/kamil/Pulpit/projects/my weekend pizza/node_modules/.bin:/home/kamil/.config/yarn/link/node_modules/.bin:/home/kamil/.yarn/bin:/home/kamil/.nvm/versions/node/v12.13.1/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/kamil/.nvm/versions/node/v12.13.1/lib/node_modules/npm/bin/node-gyp-bin:/home/kamil/.nvm/versions/node/v12.13.1/bin/node_modules/npm/bin/node-gyp-bin:/home/kamil/.nvm/versions/node/v12.13.1/bin:/home/kamil/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 Yarn version: 
   1.21.1
@@ -62,6 +62,7 @@ npm manifest:
       "react-bootstrap-icons": "^1.0.3-alpha5",
       "react-dom": "^16.13.1",
       "react-redux": "^7.2.1",
+      "react-useanimations": "^2.0.5",
       "redux": "^4.0.5",
       "redux-devtools-extension": "^2.13.8",
       "styled-components": "^5.1.1",
@@ -4015,6 +4016,11 @@ Lockfile:
     dependencies:
       js-tokens "^3.0.0 || ^4.0.0"
   
+  lottie-web@^5.5.7:
+    version "5.7.3"
+    resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.7.3.tgz#dbe542270665be5dd5b32deae19e27de6e77728c"
+    integrity sha512-ftN4AdiNmtoVpCfN1doiUIUbhOrDSMikH1Yl64/xO5lzQ31AO0+G82bqrCNHIW5Ec2zE/g7y4iz7zBR1YJwDaA==
+  
   lowercase-keys@^1.0.0, lowercase-keys@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/lowercase-keys/-/lowercase-keys-1.0.1.tgz#6f9e30b47084d971a7c820ff15a6c5167b74c26f"
@@ -5269,6 +5275,13 @@ Lockfile:
       dom-helpers "^5.0.1"
       loose-envify "^1.4.0"
       prop-types "^15.6.2"
+  
+  react-useanimations@^2.0.5:
+    version "2.0.5"
+    resolved "https://registry.yarnpkg.com/react-useanimations/-/react-useanimations-2.0.5.tgz#11fa3e8db5768ea17c39bc5bcaa3058b45d3b051"
+    integrity sha512-CpUfCqnbl5CCrtXSerItVoTN0vX7gquuR+FKQRb0aHzpT/P7EdaXVVA9C7+NcyPoHV869ium8egXf2SBLGbxCA==
+    dependencies:
+      lottie-web "^5.5.7"
   
   react@^16.13.1:
     version "16.13.1"

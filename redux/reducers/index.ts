@@ -5,6 +5,7 @@ import language from "./language.reducer";
 import mainMenu from "./main-menu.reducer";
 import navigationMenues from "./navigation-menues.reducer";
 import popup from "./popup.reducer";
+import user from "./login.reducer";
 
 const rootReducer = combineReducers({
   cart,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   mainMenu,
   navigationMenues,
   popup,
+  user,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
