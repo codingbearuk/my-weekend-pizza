@@ -19,6 +19,7 @@ const Navbar: FunctionComponent<IndexComponent> = p => {
 
   const signInButton: RefObject<HTMLDivElement> = useRef(null);
   const signUpButton: RefObject<HTMLDivElement> = useRef(null);
+  const userButton: RefObject<HTMLDivElement> = useRef(null);
 
   const handleMainMenuButton = useCallback(() => {
     dispatch(mainMenuState ? closeMenu() : openMenu());
@@ -52,7 +53,7 @@ const Navbar: FunctionComponent<IndexComponent> = p => {
         emailState,
         userMenuState,
       }}
-      refs={{ signInButton, signUpButton }}
+      refs={{ signInButton, signUpButton, userButton }}
     />
   );
 };

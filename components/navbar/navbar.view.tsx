@@ -11,6 +11,7 @@ import MainMenu from 'components/main-menu';
 import SignInMenu from 'components/sign-in-menu';
 import SignUpMenu from 'components/sign-up-menu';
 import UserButton from 'components/UI/user-button';
+import UserMenu from 'components/user-menu';
 
 const View: FunctionComponent<ViewComponent> = ({ handlers, state, refs }) => {
   return (
@@ -20,7 +21,9 @@ const View: FunctionComponent<ViewComponent> = ({ handlers, state, refs }) => {
       <Cart iconSize={20} numberSize={20} />
       <Separator width={20} />
       {state.isUserLoggedState ? (
-        <UserButton email={state.emailState} onClick={handlers.handleUserMenuButton} />
+        <div ref={refs.userButton}>
+          <UserButton email={state.emailState} onClick={handlers.handleUserMenuButton} />
+        </div>
       ) : (
         <>
           <div ref={refs.signInButton}>
@@ -35,6 +38,7 @@ const View: FunctionComponent<ViewComponent> = ({ handlers, state, refs }) => {
       {state.mainMenuState && <MainMenu />}
       {state.signInMenuState && <SignInMenu buttonRef={refs.signInButton} />}
       {state.signUpMenuState && <SignUpMenu buttonRef={refs.signUpButton} />}
+      {state.userMenuState && <UserMenu buttonRef={refs.userButton} />}
     </Container>
   );
 };

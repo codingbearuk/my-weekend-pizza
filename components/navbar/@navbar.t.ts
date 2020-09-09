@@ -22,6 +22,7 @@ export interface ViewComponent {
   refs: {
     signInButton: RefObject<HTMLDivElement>;
     signUpButton: RefObject<HTMLDivElement>;
+    userButton: RefObject<HTMLDivElement>;
   };
 }
 
