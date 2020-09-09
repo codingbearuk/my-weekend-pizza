@@ -20,7 +20,7 @@ const View: FunctionComponent<ViewComponent> = ({ handlers, state, refs }) => {
       <Cart iconSize={20} numberSize={20} />
       <Separator width={20} />
       {state.isUserLoggedState ? (
-        <UserButton email={state.emailState} />
+        <UserButton email={state.emailState} onClick={handlers.handleUserMenuButton} />
       ) : (
         <>
           <div ref={refs.signInButton}>

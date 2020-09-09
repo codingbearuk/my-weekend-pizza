@@ -1,25 +1,31 @@
-import Action from "redux/actions/@action.t";
+import Action from 'redux/actions/@action.t';
 
 export function signUpMenuON(): Action {
   return {
-    type: "SIGN_UP_MENU_ON",
+    type: 'SIGN_UP_MENU_ON',
   };
 }
 
 export function signInMenuON(): Action {
   return {
-    type: "SIGN_IN_MENU_ON",
+    type: 'SIGN_IN_MENU_ON',
   };
 }
 
 export function CartMenuON(): Action {
   return {
-    type: "CART_MENU_ON",
+    type: 'CART_MENU_ON',
+  };
+}
+
+export function userMenuON(): Action {
+  return {
+    type: 'USER_MENU_ON',
   };
 }
 
 export function menuOFF(): Action {
   return {
-    type: "MENU_OFF",
+    type: 'MENU_OFF',
   };
 }

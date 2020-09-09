@@ -9,12 +9,14 @@ export interface ViewComponent {
     handleMainMenuButton: () => void;
     handleSignInMenuButton: () => void;
     handleSignUpMenuButton: () => void;
+    handleUserMenuButton: () => void;
   };
   state: {
     mainMenuState: boolean;
     signInMenuState: boolean;
     signUpMenuState: boolean;
     isUserLoggedState: boolean;
+    userMenuState: boolean;
     emailState: string;
   };
   refs: {

@@ -1,5 +1,7 @@
-import Action from "redux/actions/@action.t";
-import post from "api-comunication/post";
+import Action from 'redux/actions/@action.t';
+import post from 'api-comunication/post';
+
+import { menuOFF } from './navigation.actions';
 
 // types
 export interface Body {
@@ -25,27 +27,28 @@ export interface LoginAction extends Action {
   };
 }
 
-export const loginUser = () => (dispatch) => {
-  const id: string = localStorage.getItem("sessionID");
+export const loginUser = () => dispatch => {
+  const id: string = localStorage.getItem('sessionID');
   const body: Body = {
     sessionID: id,
   };
-  post("/authorisation", body).then((data: Data) => {
-    if (data.status === "ok") {
+  post('/authorisation', body).then((data: Data) => {
+    if (data.status === 'ok') {
       const action = {
-        type: "LOGIN_USER",
+        type: 'LOGIN_USER',
         payload: {
           ...data.user,
         },
       };
+      dispatch(menuOFF());
       dispatch(action);
     }
   });
 };
 
 export const logoutUSer = (): Action => {
-  localStorage.removeItem("sessionID");
+  localStorage.removeItem('sessionID');
   return {
-    type: "LOGOUT_USER",
+    type: 'LOGOUT_USER',
   };
 };

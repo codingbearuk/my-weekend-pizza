@@ -5,12 +5,13 @@ import View from './navbar.view';
 import { IndexComponent } from './@navbar.t';
 import { RootState } from 'redux/reducers';
 import { openMenu, closeMenu } from 'redux/actions/menu.action';
-import { signInMenuON, signUpMenuON, menuOFF } from 'redux/actions/navigation.actions';
+import { signInMenuON, signUpMenuON, menuOFF, userMenuON } from 'redux/actions/navigation.actions';
 
 const Navbar: FunctionComponent<IndexComponent> = p => {
   const mainMenuState: boolean = useSelector((s: RootState) => s.mainMenu);
   const signInMenuState: boolean = useSelector((s: RootState) => s.navigationMenues.signINMenu);
   const signUpMenuState: boolean = useSelector((s: RootState) => s.navigationMenues.signUPMenu);
+  const userMenuState: boolean = useSelector((s: RootState) => s.navigationMenues.userMenu);
   const isUserLoggedState: boolean = useSelector((s: RootState) => s.user.isLogged);
   const emailState: string = useSelector((s: RootState) => s.user.email);
 
@@ -31,12 +32,17 @@ const Navbar: FunctionComponent<IndexComponent> = p => {
     dispatch(signUpMenuState ? menuOFF() : signUpMenuON());
   }, [signUpMenuState]);
 
+  const handleUserMenuButton = useCallback(() => {
+    dispatch(userMenuState ? menuOFF() : userMenuON());
+  }, [userMenuState]);
+
   return (
     <View
       handlers={{
         handleMainMenuButton,
         handleSignInMenuButton,
         handleSignUpMenuButton,
+        handleUserMenuButton,
       }}
       state={{
         mainMenuState,
@@ -44,6 +50,7 @@ const Navbar: FunctionComponent<IndexComponent> = p => {
         signUpMenuState,
         isUserLoggedState,
         emailState,
+        userMenuState,
       }}
       refs={{ signInButton, signUpButton }}
     />
