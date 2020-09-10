@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import { background, white } from "./colors";
+import { createGlobalStyle } from 'styled-components';
+import { background, white } from './colors';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -7,8 +7,12 @@ const GlobalStyle = createGlobalStyle`
     src: url('fonts/bradhitc.ttf');
   }
   @font-face {
-    font-family: 'Helvetica';
+    font-family: 'helvetica';
     src: url('fonts/Helvetica.ttf');
+  }
+  @font-face {
+    font-family: 'helvetica-light';
+    src: url('fonts/helvetica-light.ttf');
   }
   
   *, *::before, *::after {
@@ -21,10 +25,14 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   h1, h2 {
-    font-family: 'bradley hand'
+    font-family: 'bradley hand';
   }
   p{
-    font-family: 'Helvetica'
+    font-family: 'helvetica';
+  }
+  button {
+    font-family: 'helvetica-light';
+    font-weight: 100;
   }
 `;
 

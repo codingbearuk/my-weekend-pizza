@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
@@ -17,4 +17,11 @@ export const Logo = styled.img`
   transform: translateY(-50%);
   height: 35%;
   z-index: 50;
+`;
+
+export const ButtonContainer = styled.div`
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
 `;
