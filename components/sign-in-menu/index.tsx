@@ -1,18 +1,13 @@
-import React, {
-  FunctionComponent,
-  RefObject,
-  useReducer,
-  useCallback,
-} from "react";
+import React, { FunctionComponent, RefObject, useReducer, useCallback } from 'react';
 
-import View from "./sign-in-menu.view";
-import { initialState, reducer, Action } from "./sign-in-menu.state";
-import post from "api-comunication/post";
-import createLoginEvent from "custom-events/login.event";
+import View from './sign-in-menu.view';
+import { initialState, reducer, Action } from './sign-in-menu.state';
+import post from 'api-comunication/post';
+import createLoginEvent from 'utils/custom-events/login.event';
 
 const SignInMenu: FunctionComponent<{
   buttonRef: RefObject<HTMLDivElement>;
-}> = (p) => {
+}> = p => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const positionLeft: number = p.buttonRef.current.offsetLeft;
@@ -20,7 +15,7 @@ const SignInMenu: FunctionComponent<{
 
   const handleLoginInput = useCallback((value: string): void => {
     const action: Action = {
-      type: "INPUT_LOGIN",
+      type: 'INPUT_LOGIN',
       payload: {
         login: value,
       },
@@ -30,7 +25,7 @@ const SignInMenu: FunctionComponent<{
 
   const handlePasswordInput = useCallback((value: string): void => {
     const action: Action = {
-      type: "INPUT_PASSWORD",
+      type: 'INPUT_PASSWORD',
       payload: {
         password: value,
       },
@@ -45,17 +40,17 @@ const SignInMenu: FunctionComponent<{
       sessionID?: string;
     }
 
-    dispatch({ type: "SET_LOADING", payload: { loading: true } });
-    const data: Data = await post("/login", {
+    dispatch({ type: 'SET_LOADING', payload: { loading: true } });
+    const data: Data = await post('/login', {
       email: state.login,
       password: state.password,
     });
     console.log(data);
-    if (data.status === "ok") {
-      dispatch({ type: "SET_LOADING", payload: { loading: false } });
+    if (data.status === 'ok') {
+      dispatch({ type: 'SET_LOADING', payload: { loading: false } });
       createLoginEvent(data.sessionID);
     } else {
-      dispatch({ type: "SET_LOADING", payload: { loading: false } });
+      dispatch({ type: 'SET_LOADING', payload: { loading: false } });
     }
   }, [state]);
 

@@ -7,4 +7,18 @@ export const Button = styled.button`
   cursor: pointer;
   color: ${colors.white};
   padding: 10px;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    color: ${colors.white};
+  }
+  :active {
+    background: ${colors.white};
+    color: ${colors.black};
+    svg {
+      color: ${colors.black};
+    }
+  }
 `;

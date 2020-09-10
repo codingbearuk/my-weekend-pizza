@@ -46,7 +46,7 @@ export const loginUser = () => dispatch => {
   });
 };
 
-export const logoutUSer = (): Action => {
+export const logoutUser = (): Action => {
   localStorage.removeItem('sessionID');
   return {
     type: 'LOGOUT_USER',

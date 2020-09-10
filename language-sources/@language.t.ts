@@ -33,6 +33,9 @@ type Language = {
   menu: {
     header: string;
   };
+  userMenu: {
+    logout: 'logout';
+  };
 };
 
 export default Language;

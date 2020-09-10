@@ -1,13 +1,14 @@
-import React, { FunctionComponent, useEffect } from "react";
-import GlobalStyle from "../styled/global.styles";
-import { Provider, useSelector, useDispatch } from "react-redux";
-import withRedux from "next-redux-wrapper";
-import store from "../redux/store";
-import { RootState } from "redux/reducers/index";
-import Popup from "components/UI/popup";
-import { colsePopup } from "redux/actions/popup.action";
-import { loginUser } from "redux/actions/login.action";
-import { loginEventHandle, LoginEvent } from "custom-events/login.event";
+import React, { FunctionComponent, useEffect } from 'react';
+import GlobalStyle from '../styled/global.styles';
+import { Provider, useSelector, useDispatch } from 'react-redux';
+import withRedux from 'next-redux-wrapper';
+import store from '../redux/store';
+import { RootState } from 'redux/reducers/index';
+import Popup from 'components/UI/popup';
+import { colsePopup } from 'redux/actions/popup.action';
+import { loginUser } from 'redux/actions/login.action';
+import { loginEventHandle, LoginEvent } from 'utils/custom-events/login.event';
+import { handleLogoutEvent } from 'utils/custom-events/logout.event';
 
 const BasicLayout: FunctionComponent = ({ children }) => {
   const isPopupOpen: boolean = useSelector((s: RootState) => s.popup.isOpen);
@@ -16,20 +17,27 @@ const BasicLayout: FunctionComponent = ({ children }) => {
   const dispatch = useDispatch();
 
   const loginListener = (): void => {
-    window.addEventListener("login", (e: LoginEvent) => {
+    window.addEventListener('login', (e: LoginEvent) => {
       loginEventHandle(e.detail.sessionID);
       dispatch(loginUser());
     });
   };
 
+  const logoutListener = (): void => {
+    window.addEventListener('logout', () => {
+      handleLogoutEvent();
+    });
+  };
+
   const loginUserIfSessionID = (): void => {
-    const id: string = localStorage.getItem("sessionID");
+    const id: string = localStorage.getItem('sessionID');
     if (id) dispatch(loginUser());
   };
 
   useEffect(() => {
     loginListener();
     loginUserIfSessionID();
+    logoutListener();
   }, []);
 
   return (
