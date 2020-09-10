@@ -1,8 +1,8 @@
 import React, { FunctionComponent, useEffect } from 'react';
 import GlobalStyle from '../styled/global.styles';
-import { Provider, useSelector, useDispatch } from 'react-redux';
-import withRedux from 'next-redux-wrapper';
-import store from '../redux/store';
+import { Head } from 'next/document';
+
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'redux/reducers/index';
 import Popup from 'components/UI/popup';
 import { colsePopup } from 'redux/actions/popup.action';
@@ -41,7 +41,7 @@ const BasicLayout: FunctionComponent = ({ children }) => {
   }, []);
 
   return (
-    <Provider store={store}>
+    <React.Fragment>
       <GlobalStyle />
       {isPopupOpen && (
         <Popup
@@ -53,9 +53,8 @@ const BasicLayout: FunctionComponent = ({ children }) => {
         />
       )}
       {children}
-    </Provider>
+    </React.Fragment>
   );
 };
 
-const makeStore = () => store;
-export default withRedux(makeStore)(BasicLayout);
+export default BasicLayout;

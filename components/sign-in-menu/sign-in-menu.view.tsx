@@ -1,12 +1,13 @@
-import React, { FunctionComponent } from "react";
-import Menu from "components/UI/menu";
-import Input from "components/UI/input";
-import Separator from "components/UI/separator";
-import ArrowButton from "components/UI/arrow-button";
-import Loading from "components/UI/loading-arrow-button";
-import language from "language-sources";
+import React, { FunctionComponent } from 'react';
+import { Alert } from 'react-bootstrap';
+import Menu from 'components/UI/menu';
+import Input from 'components/UI/input';
+import Separator from 'components/UI/separator';
+import ArrowButton from 'components/UI/arrow-button';
+import Loading from 'components/UI/loading-arrow-button';
+import language from 'language-sources';
 
-import { Container, ArrowButtonContainer } from "./sign-in-menu.styles";
+import { Container, ArrowButtonContainer } from './sign-in-menu.styles';
 
 const View: FunctionComponent<{
   positionLeft: number;
@@ -15,30 +16,26 @@ const View: FunctionComponent<{
   handlePasswordInput: (value: string) => void;
   handleLogin: () => void;
   isLoading: boolean;
-}> = (p) => {
+  error: string;
+}> = p => {
   return (
     <Menu positionLeft={p.positionLeft} buttonWidth={p.buttonWidth}>
       <Container>
-        <Input
-          title={language.login.login}
-          iconName="PersonFill"
-          callback={p.handleLoginInput}
-        />
+        <Input title={language.login.login} iconName='PersonFill' callback={p.handleLoginInput} />
         <Separator height={10} />
         <Input
           title={language.login.password}
-          iconName="LockFill"
+          iconName='LockFill'
           callback={p.handlePasswordInput}
-          type="password"
+          type='password'
         />
         <Separator height={20} />
+        {p.error && <Alert variant='danger'>{p.error}</Alert>}
         <ArrowButtonContainer>
           {p.isLoading ? (
             <Loading></Loading>
           ) : (
-            <ArrowButton onClick={p.handleLogin}>
-              {language.login.button}
-            </ArrowButton>
+            <ArrowButton onClick={p.handleLogin}>{language.login.button}</ArrowButton>
           )}
         </ArrowButtonContainer>
       </Container>

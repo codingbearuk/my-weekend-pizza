@@ -41,16 +41,18 @@ const SignInMenu: FunctionComponent<{
     }
 
     dispatch({ type: 'SET_LOADING', payload: { loading: true } });
+    dispatch({ type: 'SET_ERROR', payload: { error: '' } });
     const data: Data = await post('/login', {
       email: state.login,
       password: state.password,
     });
-    console.log(data);
+
     if (data.status === 'ok') {
       dispatch({ type: 'SET_LOADING', payload: { loading: false } });
       createLoginEvent(data.sessionID);
     } else {
       dispatch({ type: 'SET_LOADING', payload: { loading: false } });
+      dispatch({ type: 'SET_ERROR', payload: { error: data.msg } });
     }
   }, [state]);
 
@@ -62,6 +64,7 @@ const SignInMenu: FunctionComponent<{
       handlePasswordInput={handlePasswordInput}
       handleLogin={handleLogin}
       isLoading={state.loading}
+      error={state.error}
     />
   );
 };
