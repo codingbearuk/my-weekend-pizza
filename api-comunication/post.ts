@@ -1,4 +1,5 @@
-import key from "api-comunication/key";
+import key from 'api-comunication/key';
+import fetch from 'node-fetch';
 
 export interface POST {
   (query: string, body: object): Promise<object>;
@@ -6,9 +7,9 @@ export interface POST {
 
 const post: POST = async (query, body) => {
   const getData = await fetch(`${key}${query}`, {
-    method: "post",
+    method: 'post',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(body),
   });
