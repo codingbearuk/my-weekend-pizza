@@ -6,14 +6,17 @@ import PizzaComponent from 'components/UI/pizza';
 import { Container, PizzasContainer } from './select-pizza.styles';
 import { Pizza } from './select-pizza.t';
 
-const View: React.FunctionComponent<{ pizzas: Array<Pizza> }> = p => {
+const View: React.FunctionComponent<{
+  pizzas: Array<Pizza>;
+  handleAddPizzaToCart: (pizza: Pizza, size: string) => void;
+}> = p => {
   return (
     <Container>
       <Title imageName='pizza-logo@2x.png'>Select your pizza</Title>
       <Separator height={30} />
       <PizzasContainer>
         {p.pizzas.map((pizza: Pizza) => (
-          <PizzaComponent key={pizza._id} {...pizza} />
+          <PizzaComponent key={pizza._id} pizza={pizza} callback={p.handleAddPizzaToCart} />
         ))}
       </PizzasContainer>
     </Container>
