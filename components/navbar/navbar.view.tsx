@@ -3,7 +3,7 @@ import { FilterLeft } from 'react-bootstrap-icons';
 import language from 'language-sources';
 
 import { ViewComponent } from './@navbar.t';
-import { Container } from './navbar.styles';
+import { Container, PizzaLogoContainer } from './navbar.styles';
 import Cart from 'components/UI/cart';
 import Separator from 'components/UI/separator';
 import Button from 'components/UI/button';
@@ -15,7 +15,7 @@ import UserMenu from 'components/user-menu';
 
 const View: FunctionComponent<ViewComponent> = ({ handlers, state, refs }) => {
   return (
-    <Container isScrolled={false}>
+    <Container isScrolled={state.isPageScrolled}>
       <FilterLeft size='40px' onClick={handlers.handleMainMenuButton} />
       <Separator width={20} />
       <Cart iconSize={20} numberSize={20} />
@@ -34,6 +34,13 @@ const View: FunctionComponent<ViewComponent> = ({ handlers, state, refs }) => {
             <Button text={language.navbar.signUp} onClick={handlers.handleSignUpMenuButton} />
           </div>
         </>
+      )}
+      {state.isPageScrolled && (
+        <PizzaLogoContainer>
+          <img src='images/pizza-logo@2x.png' alt='pizza-logo' />
+          <Separator width={15} />
+          <p>My Weekend Pizza</p>
+        </PizzaLogoContainer>
       )}
       {state.mainMenuState && <MainMenu />}
       {state.signInMenuState && <SignInMenu buttonRef={refs.signInButton} />}

@@ -1,11 +1,12 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-import cart from "./cart.reducer";
-import language from "./language.reducer";
-import mainMenu from "./main-menu.reducer";
-import navigationMenues from "./navigation-menues.reducer";
-import popup from "./popup.reducer";
-import user from "./login.reducer";
+import cart from './cart.reducer';
+import language from './language.reducer';
+import mainMenu from './main-menu.reducer';
+import navigationMenues from './navigation-menues.reducer';
+import popup from './popup.reducer';
+import user from './login.reducer';
+import pageScroll from './page-scroll.reducer';
 
 const rootReducer = combineReducers({
   cart,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   navigationMenues,
   popup,
   user,
+  pageScroll,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

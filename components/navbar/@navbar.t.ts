@@ -18,6 +18,7 @@ export interface ViewComponent {
     isUserLoggedState: boolean;
     userMenuState: boolean;
     emailState: string;
+    isPageScrolled: boolean;
   };
   refs: {
     signInButton: RefObject<HTMLDivElement>;

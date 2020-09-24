@@ -1,10 +1,10 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-import { StyledContainer } from "./@navbar.t";
-import colors from "styled/colors";
+import { StyledContainer } from './@navbar.t';
+import colors from 'styled/colors';
 
 export const Container = styled.nav<{ isScrolled: boolean }>`
-  ${(p) =>
+  ${p =>
     p.isScrolled &&
     css`
       backdrop-filter: blur(5px);
@@ -21,5 +21,23 @@ export const Container = styled.nav<{ isScrolled: boolean }>`
   svg {
     color: ${colors.white};
     cursor: pointer;
+  }
+`;
+
+export const PizzaLogoContainer = styled.div`
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    height: 90%;
+  }
+  p {
+    margin: 0;
+    font-family: 'bradley hand';
+    font-size: 1.4em;
   }
 `;

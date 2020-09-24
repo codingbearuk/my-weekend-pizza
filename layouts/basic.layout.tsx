@@ -7,6 +7,7 @@ import { RootState } from 'redux/reducers/index';
 import Popup from 'components/UI/popup';
 import { colsePopup } from 'redux/actions/popup.action';
 import { loginUser } from 'redux/actions/login.action';
+import { setPageScrollTrue, setPageScrollFalse } from 'redux/actions/page-scroll.actions';
 import { loginEventHandle, LoginEvent } from 'utils/custom-events/login.event';
 import { handleLogoutEvent } from 'utils/custom-events/logout.event';
 
@@ -34,10 +35,22 @@ const BasicLayout: FunctionComponent = ({ children }) => {
     if (id) dispatch(loginUser());
   };
 
+  const handlePageScroll = (): void => {
+    const getScroll = () => {
+      const scrollPosition: number = window.scrollY;
+      console.log(scrollPosition);
+      if (scrollPosition >= 150) dispatch(setPageScrollTrue());
+      else dispatch(setPageScrollFalse());
+    };
+    getScroll();
+    document.addEventListener('scroll', getScroll);
+  };
+
   useEffect(() => {
     loginListener();
     loginUserIfSessionID();
     logoutListener();
+    handlePageScroll();
   }, []);
 
   return (
