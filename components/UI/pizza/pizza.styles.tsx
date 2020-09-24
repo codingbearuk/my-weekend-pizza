@@ -42,10 +42,5 @@ export const DisplayOnHover = styled.div`
   justify-content: center;
   align-items: center;
   padding: 15px 0;
-  height: 70px;
-  svg {
-    color: ${colors.yellow};
-    font-size: 1.7em;
-    cursor: pointer;
-  }
+  height: 80px;
 `;

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { CartPlus } from 'react-bootstrap-icons';
+import CarretButton from 'components/UI/carret-button';
 import { Form } from 'react-bootstrap';
 
 import { Container, IngredientsContainer, Price, DisplayOnHover } from './pizza.styles';
@@ -39,10 +39,10 @@ const Pizza: React.FunctionComponent<PizzaComponent> = p => {
             <option>large</option>
           </Form.Control>
           <Separator width={15} />
-          <CartPlus onClick={() => p.callback(p.pizza, size)} />
+          <CarretButton onClick={() => p.callback(p.pizza, size)} />
         </DisplayOnHover>
       ) : (
-        <Separator height={70} />
+        <Separator height={80} />
       )}
     </Container>
   );
