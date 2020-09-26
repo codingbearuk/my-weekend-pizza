@@ -8,7 +8,8 @@ export interface CartItem {
   image: string;
   ingredients?: Array<string>;
   description?: string;
-  size: string;
+  size?: string;
+  amount?: number;
 }
 
 export function addToCartAction(cartItem: CartItem): Action {

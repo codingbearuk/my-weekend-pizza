@@ -38,7 +38,6 @@ const BasicLayout: FunctionComponent = ({ children }) => {
   const handlePageScroll = (): void => {
     const getScroll = () => {
       const scrollPosition: number = window.scrollY;
-      console.log(scrollPosition);
       if (scrollPosition >= 150) dispatch(setPageScrollTrue());
       else dispatch(setPageScrollFalse());
     };

@@ -39,6 +39,15 @@ const eng: Language = {
   userMenu: {
     logout: 'logout',
   },
+  selectPizza: {
+    title: 'select your pizza',
+    small: 'small (21.5cm)',
+    medium: 'medium (30cm)',
+    large: 'large (38.5cm)',
+  },
+  selectSauce: {
+    title: 'add a sauce',
+  },
 };
 
 export default eng;

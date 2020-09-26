@@ -34,7 +34,16 @@ type Language = {
     header: string;
   };
   userMenu: {
-    logout: 'logout';
+    logout: string;
+  };
+  selectPizza: {
+    title: string;
+    small: string;
+    medium: string;
+    large: string;
+  };
+  selectSauce: {
+    title: string;
   };
 };
 
