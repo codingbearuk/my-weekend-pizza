@@ -15,6 +15,7 @@ export interface ViewComponent {
     mainMenuState: boolean;
     signInMenuState: boolean;
     signUpMenuState: boolean;
+    cartMenuState: boolean;
     isUserLoggedState: boolean;
     userMenuState: boolean;
     emailState: string;

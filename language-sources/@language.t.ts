@@ -45,6 +45,9 @@ type Language = {
   selectSauce: {
     title: string;
   };
+  cart: {
+    title: string;
+  };
 };
 
 export default Language;

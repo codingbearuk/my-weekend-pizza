@@ -41,12 +41,15 @@ const eng: Language = {
   },
   selectPizza: {
     title: 'select your pizza',
-    small: 'small (21.5cm)',
-    medium: 'medium (30cm)',
-    large: 'large (38.5cm)',
+    small: 'small (9.5")',
+    medium: 'medium (11.5") +£3',
+    large: 'large (13.5") +£5',
   },
   selectSauce: {
     title: 'add a sauce',
+  },
+  cart: {
+    title: 'my shoppings',
   },
 };
 

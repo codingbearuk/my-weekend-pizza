@@ -12,6 +12,7 @@ const Navbar: FunctionComponent<IndexComponent> = p => {
   const signInMenuState: boolean = useSelector((s: RootState) => s.navigationMenues.signINMenu);
   const signUpMenuState: boolean = useSelector((s: RootState) => s.navigationMenues.signUPMenu);
   const userMenuState: boolean = useSelector((s: RootState) => s.navigationMenues.userMenu);
+  const cartMenuState: boolean = useSelector((s: RootState) => s.navigationMenues.cart);
   const isUserLoggedState: boolean = useSelector((s: RootState) => s.user.isLogged);
   const emailState: string = useSelector((s: RootState) => s.user.email);
   const isPageScrolled: boolean = useSelector((s: RootState) => s.pageScroll);
@@ -54,6 +55,7 @@ const Navbar: FunctionComponent<IndexComponent> = p => {
         emailState,
         userMenuState,
         isPageScrolled,
+        cartMenuState,
       }}
       refs={{ signInButton, signUpButton, userButton }}
     />
