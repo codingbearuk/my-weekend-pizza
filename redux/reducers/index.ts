@@ -7,6 +7,7 @@ import navigationMenues from './navigation-menues.reducer';
 import popup from './popup.reducer';
 import user from './login.reducer';
 import pageScroll from './page-scroll.reducer';
+import finishAndPay from './finish&pay.reducer';
 
 const rootReducer = combineReducers({
   cart,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   popup,
   user,
   pageScroll,
+  finishAndPay,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

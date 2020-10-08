@@ -1,10 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import gsap from 'gsap';
 
 import View from './cart-menu.view';
 import { CartMenuType } from './cart-menu.t';
 import { CartItem } from 'redux/actions/cart.action';
+import { openFinishAndPayWindow } from 'redux/actions/finish&pay.action';
+import { menuOFF } from 'redux/actions/navigation.actions';
 import { RootState } from 'redux/reducers';
 
 const CartMenu: React.FunctionComponent<CartMenuType> = p => {
@@ -14,10 +16,14 @@ const CartMenu: React.FunctionComponent<CartMenuType> = p => {
   const cartContent: Array<CartItem> = useSelector((s: RootState) => s.cart);
   const isUserLogged: boolean = useSelector((s: RootState) => s.user.isLogged);
 
+  const dispatch = useDispatch();
+
   const handlePayButton = useCallback(() => {
     if (!isUserLogged) setModalActive(true);
     else if (cartContent.length < 1) setCartEmptyModal(true);
     else {
+      dispatch(openFinishAndPayWindow());
+      dispatch(menuOFF());
     }
   }, []);
 
