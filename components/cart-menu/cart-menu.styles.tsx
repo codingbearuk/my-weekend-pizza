@@ -14,6 +14,8 @@ export const Container = styled.div<{}>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  opacity: 0;
   h1 {
     margin: 20px 0;
     font-size: 1.3em;

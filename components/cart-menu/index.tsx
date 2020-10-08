@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import gsap from 'gsap';
 
 import View from './cart-menu.view';
 import { CartMenuType } from './cart-menu.t';
@@ -38,6 +39,22 @@ const CartMenu: React.FunctionComponent<CartMenuType> = p => {
     return total;
   };
 
+  const entryAnimation = (container: React.RefObject<HTMLDivElement>) => {
+    const tl = gsap.timeline({ repeat: 0, delay: 0 });
+    tl.fromTo(
+      container,
+      {
+        opacity: 0,
+        height: 0,
+      },
+      {
+        opacity: 1,
+        height: 'auto',
+        duration: 0.4,
+      }
+    );
+  };
+
   return (
     <View
       {...{
@@ -48,6 +65,7 @@ const CartMenu: React.FunctionComponent<CartMenuType> = p => {
         setModalActive,
         isCartEmptyModal,
         setCartEmptyModal,
+        entryAnimation,
       }}
     />
   );

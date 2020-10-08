@@ -16,9 +16,16 @@ const View: React.FunctionComponent<{
   setModalActive: any;
   isCartEmptyModal: boolean;
   setCartEmptyModal: any;
+  entryAnimation: (container: React.RefObject<HTMLDivElement>) => void;
 }> = p => {
+  const containerRef = React.useRef();
+
+  React.useEffect(() => {
+    p.entryAnimation(containerRef.current);
+  }, []);
+
   return (
-    <Container>
+    <Container ref={containerRef}>
       {p.isModalActive && (
         <ModalContainer>
           <Modal show={p.isModalActive} centered onHide={() => p.setModalActive(false)}>
