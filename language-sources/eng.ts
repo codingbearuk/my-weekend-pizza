@@ -50,6 +50,13 @@ const eng: Language = {
   },
   cart: {
     title: 'my shoppings',
+    button: 'finnish and pay',
+    modal: {
+      title: 'you are not logged in!',
+      title2: 'Ooops!',
+      msg: 'you have to log in to process the payment',
+      msg2: 'your cart is currently empty',
+    },
   },
 };
 

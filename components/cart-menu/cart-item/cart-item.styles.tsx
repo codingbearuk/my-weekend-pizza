@@ -1,7 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import colors from 'styled/colors';
 
 export const Container = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+`;
+
+export const CItem = styled.div<{ isHover: boolean }>`
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -12,6 +19,14 @@ export const Container = styled.div`
   padding: 10px 5px;
   margin-bottom: 15px;
   position: relative;
+  transition-duration: 0.3s;
+  ${p =>
+    p.isHover &&
+    css`
+      filter: blur(3px);
+      opacity: 0.6;
+    `}
+
   img {
     width: 80%;
   }
@@ -41,4 +56,16 @@ export const Circe = styled.div`
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
+`;
+
+export const DeleteIconContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  svg {
+    font-size: 4em;
+    cursor: pointer;
+    color: ${colors.white};
+  }
 `;

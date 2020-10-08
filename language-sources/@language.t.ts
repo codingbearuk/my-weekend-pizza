@@ -47,6 +47,13 @@ type Language = {
   };
   cart: {
     title: string;
+    button: string;
+    modal: {
+      title: string;
+      title2: string;
+      msg: string;
+      msg2: string;
+    };
   };
 };
 

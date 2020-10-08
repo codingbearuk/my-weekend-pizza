@@ -46,4 +46,26 @@ export const CartContent = styled.div`
   width: 100%;
 `;
 
-export const Footer = styled.footer``;
+export const Footer = styled.footer`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 5%;
+`;
+
+export const PayButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  svg {
+    font-size: 1.3em;
+  }
+`;
+
+export const ModalContainer = styled.div`
+  position: fixed;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+`;

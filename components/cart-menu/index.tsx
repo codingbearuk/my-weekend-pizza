@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import View from './cart-menu.view';
@@ -7,7 +7,18 @@ import { CartItem } from 'redux/actions/cart.action';
 import { RootState } from 'redux/reducers';
 
 const CartMenu: React.FunctionComponent<CartMenuType> = p => {
+  const [isModalActive, setModalActive] = useState<boolean>(false);
+  const [isCartEmptyModal, setCartEmptyModal] = useState<boolean>(false);
+
   const cartContent: Array<CartItem> = useSelector((s: RootState) => s.cart);
+  const isUserLogged: boolean = useSelector((s: RootState) => s.user.isLogged);
+
+  const handlePayButton = useCallback(() => {
+    if (!isUserLogged) setModalActive(true);
+    else if (cartContent.length < 1) setCartEmptyModal(true);
+    else {
+    }
+  }, []);
 
   const getTotalPrice = (): number => {
     let total: number = 0;
@@ -27,7 +38,19 @@ const CartMenu: React.FunctionComponent<CartMenuType> = p => {
     return total;
   };
 
-  return <View {...{ cartContent, totalPrice: getTotalPrice() }} />;
+  return (
+    <View
+      {...{
+        cartContent,
+        totalPrice: getTotalPrice(),
+        handlePayButton,
+        isModalActive,
+        setModalActive,
+        isCartEmptyModal,
+        setCartEmptyModal,
+      }}
+    />
+  );
 };
 
 export default CartMenu;
