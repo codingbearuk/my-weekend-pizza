@@ -58,6 +58,10 @@ const eng: Language = {
       msg2: 'your trolley is currently empty',
     },
   },
+  finishAndPay: {
+    firstStepTitle: 'order summary',
+    firstStepButton: 'submit my order',
+  },
 };
 
 export default eng;

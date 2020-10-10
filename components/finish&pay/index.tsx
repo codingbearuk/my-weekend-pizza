@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import gsap from 'gsap';
 
@@ -6,6 +6,8 @@ import View from './finish&pay.view';
 import { closeFinishAndPayWindow } from 'redux/actions/finish&pay.action';
 
 const FinishAndPay: React.FunctionComponent<{}> = p => {
+  const [stage, setStage] = useState<number>(1);
+
   const dispatch = useDispatch();
 
   const handleCloseModal = useCallback(() => dispatch(closeFinishAndPayWindow()), []);
@@ -83,7 +85,9 @@ const FinishAndPay: React.FunctionComponent<{}> = p => {
         handlers: {
           handleCloseModal: handleClose,
           enterAnimation,
+          setStage,
         },
+        stage,
       }}
     />
   );

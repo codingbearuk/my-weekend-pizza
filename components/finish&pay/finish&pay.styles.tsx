@@ -21,7 +21,7 @@ export const Window = styled.div`
   border-radius: 10px;
   color: ${colors.black};
   display: grid;
-  grid-template-rows: 5% 95%;
+  grid-template-rows: 5% 90% 5%;
   height: 80%;
   width: 80%;
   /* opacity: 0; */

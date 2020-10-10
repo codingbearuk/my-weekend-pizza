@@ -55,6 +55,10 @@ type Language = {
       msg2: string;
     };
   };
+  finishAndPay: {
+    firstStepTitle: string;
+    firstStepButton: string;
+  };
 };
 
 export default Language;
