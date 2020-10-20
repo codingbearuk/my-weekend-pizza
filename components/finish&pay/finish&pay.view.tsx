@@ -5,6 +5,7 @@ import StageDots from 'components/UI/stage-dots';
 
 import { Container, Window, TopBar, Content } from './finish&pay.styles';
 import FirstStage from './stages/first';
+import SecondStage from './stages/second';
 
 interface ViewType {
   handlers: {
@@ -27,6 +28,7 @@ const View: React.FunctionComponent<ViewType> = p => {
 
   const getStage = (): JSX.Element => {
     if (p.stage === 1) return <FirstStage setStage={p.handlers.setStage} />;
+    else if (p.stage === 2) return <SecondStage setStage={p.handlers.setStage} />;
   };
 
   useEffect(() => {

@@ -7,10 +7,16 @@ export const Container = styled.div`
   height: 100%;
 `;
 
-export const Title = styled.h1``;
+export const Title = styled.h1`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const CartItem = styled.div`
   margin-bottom: 15px;
+  border: 1px dashed ${colors.yellow};
+  padding: 10px;
   h3 {
     font-size: 1.3em;
   }
@@ -18,6 +24,12 @@ export const CartItem = styled.div`
     margin: 0;
     font-size: 1em;
   }
+`;
+
+export const PriceContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 `;
 
 export const TotalPrice = styled.div`
@@ -40,5 +52,16 @@ export const Button = styled.button`
   color: ${colors.red};
   svg {
     margin-left: 3px;
+  }
+`;
+
+export const DeliveryAddressInputsContainer = styled.div`
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  input{
+    color: ${colors.black};
   }
 `;

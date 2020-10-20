@@ -1,5 +1,6 @@
 #misc
 .env
 .next
+locationQ.ts
 #dependencies
 /node_modules

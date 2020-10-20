@@ -61,6 +61,19 @@ const eng: Language = {
   finishAndPay: {
     firstStepTitle: 'order summary',
     firstStepButton: 'submit my order',
+    secondStepButton: 'go to payment',
+    secondStepTitle: 'delivery address',
+    deliveryAddress: 'My delivery address',
+    changeAddress: 'change my address for this delivery',
+    cancel: 'cancel address change',
+    submit: 'submit address',
+    plusDelivery: 'extra charge for delivery',
+    inputs: {
+      address: 'delivery address',
+      city: 'city/town/village',
+      postcode: 'postcode',
+    },
+    alert: 'getting location problem. Try again for several minutes',
   },
 };
 

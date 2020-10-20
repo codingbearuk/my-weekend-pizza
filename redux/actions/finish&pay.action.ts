@@ -7,3 +7,8 @@ export const openFinishAndPayWindow = (): Action => ({
 export const closeFinishAndPayWindow = (): Action => ({
   type: 'CLOSE_FINISH_AND_PAY_WINDOW',
 });
+
+export const setDeliveryPrice = (price: number): Action => ({
+  type: 'SET_DELIVERY_PRICE',
+  payload: price,
+});

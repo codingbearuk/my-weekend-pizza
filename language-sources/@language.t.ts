@@ -58,6 +58,19 @@ type Language = {
   finishAndPay: {
     firstStepTitle: string;
     firstStepButton: string;
+    secondStepButton: string;
+    secondStepTitle: string;
+    deliveryAddress: string;
+    changeAddress: string;
+    cancel: string;
+    submit: string;
+    plusDelivery: string;
+    inputs: {
+      address: string;
+      city: string;
+      postcode: string;
+    };
+    alert: string;
   };
 };
 
