@@ -57,20 +57,25 @@ type Language = {
   };
   finishAndPay: {
     firstStepTitle: string;
+    secondStepTitle: string;
+    thirdStepTitle: string;
+    thirdStepSubTitle: string;
     firstStepButton: string;
     secondStepButton: string;
-    secondStepTitle: string;
+    thirdStepButton: string;
     deliveryAddress: string;
     changeAddress: string;
     cancel: string;
     submit: string;
     plusDelivery: string;
     inputs: {
-      address: string;
-      city: string;
-      postcode: string;
+      nameOnCard: string;
+      cardNo: string;
+      express: string;
+      cvv: string;
     };
     alert: string;
+    loading: string;
   };
 };
 

@@ -20,6 +20,7 @@ import getTotal from '../getTotal';
 
 interface FirstStageType {
   setStage: (stage: number) => void;
+  setNoStages: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const FirstStage: React.FunctionComponent<FirstStageType> = p => {
@@ -57,7 +58,12 @@ const FirstStage: React.FunctionComponent<FirstStageType> = p => {
         ))}
       </div>
       <TotalContainer>
-        <Button onClick={() => p.setStage(2)}>
+        <Button
+          onClick={() => {
+            p.setNoStages(2);
+            p.setStage(2);
+          }}
+        >
           {language.finishAndPay.firstStepButton} <ArrowRightCircleFill />
         </Button>
         <TotalPrice>Total: £{getTotal(cart).toFixed(2)}</TotalPrice>

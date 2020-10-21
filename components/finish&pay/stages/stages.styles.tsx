@@ -61,7 +61,47 @@ export const DeliveryAddressInputsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  input{
+  input {
     color: ${colors.black};
   }
+`;
+
+export const PaymentContainer = styled.div`
+  h2 {
+    font-family: helvetica;
+    font-size: 1.3em;
+    margin-top: 10px;
+  }
+  section {
+    padding: 10px 10%;
+    section {
+      display: grid;
+      grid-template-columns: 48% 4% 48%;
+      width: 100%;
+      padding: 0;
+    }
+    div {
+      grid-template-columns: 60px auto;
+      div:first-child {
+        border: 2px solid transparent;
+        background: ${colors.yellow};
+        width: 60px;
+        svg {
+          color: ${colors.white};
+        }
+      }
+      input {
+        border: 2px solid ${colors.yellow};
+        color: ${colors.yellow};
+      }
+    }
+  }
+`;
+
+export const LoadingContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

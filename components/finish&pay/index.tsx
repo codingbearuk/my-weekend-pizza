@@ -7,6 +7,7 @@ import { closeFinishAndPayWindow } from 'redux/actions/finish&pay.action';
 
 const FinishAndPay: React.FunctionComponent<{}> = p => {
   const [stage, setStage] = useState<number>(1);
+  const [noStages, setNoStages] = useState<number>(1);
 
   const dispatch = useDispatch();
 
@@ -86,8 +87,10 @@ const FinishAndPay: React.FunctionComponent<{}> = p => {
           handleCloseModal: handleClose,
           enterAnimation,
           setStage,
+          setNoStages,
         },
         stage,
+        noStages,
       }}
     />
   );

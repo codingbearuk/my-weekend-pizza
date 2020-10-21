@@ -22,6 +22,7 @@ import { setDeliveryPrice } from 'redux/actions/finish&pay.action';
 
 interface SecondStageType {
   setStage: (stage: number) => void;
+  setNoStages: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const SecondStage: React.FunctionComponent<SecondStageType> = p => {
@@ -59,6 +60,11 @@ const SecondStage: React.FunctionComponent<SecondStageType> = p => {
     else dispatch(setDeliveryPrice(100));
   };
 
+  const handleNextButton = useCallback(() => {
+    p.setNoStages(3);
+    p.setStage(3);
+  }, []);
+
   useEffect(() => {
     getDeliveryPrice();
   }, []);
@@ -85,7 +91,7 @@ const SecondStage: React.FunctionComponent<SecondStageType> = p => {
         </strong>
       </PriceContainer>
       <TotalContainer>
-        <Button onClick={() => p.setStage(3)}>
+        <Button onClick={handleNextButton}>
           {language.finishAndPay.secondStepButton} <CreditCardFill />
         </Button>
         <TotalPrice>Total: £{(getTotal(cart) + finnishAndPayState.deliveryPrice).toFixed(2)}</TotalPrice>
