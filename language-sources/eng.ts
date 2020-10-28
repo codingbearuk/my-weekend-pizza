@@ -61,16 +61,18 @@ const eng: Language = {
   finishAndPay: {
     firstStepTitle: 'order summary',
     secondStepTitle: 'delivery address',
-    thirdStepTitle: 'payment',
+    thirdStepTitle: 'payment summary',
     thirdStepSubTitle: 'total price to pay for this order',
     firstStepButton: 'submit my order',
-    secondStepButton: 'go to payment',
+    secondStepButton: 'go to summary',
     thirdStepButton: 'finnish and pay',
     deliveryAddress: 'My delivery address',
     changeAddress: 'change my address for this delivery',
     cancel: 'cancel address change',
     submit: 'submit address',
     plusDelivery: 'extra charge for delivery',
+    deliveryPrice: 'delivery price',
+    totalPriceToPay: 'total price to pay',
     inputs: {
       nameOnCard: 'name on card',
       cardNo: 'card number',
@@ -79,6 +81,16 @@ const eng: Language = {
     },
     alert: 'getting location problem. Try again for several minutes',
     loading: 'please wait, processing transaction...',
+    complete: {
+      title: 'thank you for your order with us!',
+      content: "your pizza is being prepared and you'll get it soon",
+      info: 'check your mail box to see your order progress',
+      button: 'close this window',
+    },
+    cancelWindow: {
+      title: 'something went wrong with your payment!',
+      content: 'try again - your shopping trolley has ben saved',
+    },
   },
 };
 

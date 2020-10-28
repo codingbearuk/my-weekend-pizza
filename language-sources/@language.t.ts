@@ -68,6 +68,8 @@ type Language = {
     cancel: string;
     submit: string;
     plusDelivery: string;
+    deliveryPrice: string;
+    totalPriceToPay: string;
     inputs: {
       nameOnCard: string;
       cardNo: string;
@@ -76,6 +78,16 @@ type Language = {
     };
     alert: string;
     loading: string;
+    complete: {
+      title: string;
+      content: string;
+      info: string;
+      button: string;
+    };
+    cancelWindow: {
+      title: string;
+      content: string;
+    };
   };
 };
 

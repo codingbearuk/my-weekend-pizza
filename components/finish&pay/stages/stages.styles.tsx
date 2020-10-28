@@ -7,6 +7,23 @@ export const Container = styled.div`
   height: 100%;
 `;
 
+export const Content = styled.div`
+  width: 100%;
+  height: 90%;
+  overflow-y: auto;
+  padding: 0 5px;
+  ::-webkit-scrollbar {
+    width: 8px;
+    background-color: ${colors.ultraTransparetnWhite};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: ${colors.red};
+  }
+`;
+
 export const Title = styled.h1`
   display: flex;
   justify-content: center;
@@ -66,37 +83,7 @@ export const DeliveryAddressInputsContainer = styled.div`
   }
 `;
 
-export const PaymentContainer = styled.div`
-  h2 {
-    font-family: helvetica;
-    font-size: 1.3em;
-    margin-top: 10px;
-  }
-  section {
-    padding: 10px 10%;
-    section {
-      display: grid;
-      grid-template-columns: 48% 4% 48%;
-      width: 100%;
-      padding: 0;
-    }
-    div {
-      grid-template-columns: 60px auto;
-      div:first-child {
-        border: 2px solid transparent;
-        background: ${colors.yellow};
-        width: 60px;
-        svg {
-          color: ${colors.white};
-        }
-      }
-      input {
-        border: 2px solid ${colors.yellow};
-        color: ${colors.yellow};
-      }
-    }
-  }
-`;
+export const PaymentContainer = styled.div``;
 
 export const LoadingContainer = styled.div`
   width: 100%;

@@ -4,6 +4,7 @@ import { Truck, CreditCardFill } from 'react-bootstrap-icons';
 
 import {
   Container,
+  Content,
   Title,
   CartItem,
   Button,
@@ -71,25 +72,27 @@ const SecondStage: React.FunctionComponent<SecondStageType> = p => {
 
   return (
     <Container>
-      <Title>
-        <Truck />
-        <Separator width={25} />
-        {language.finishAndPay.secondStepTitle}
-      </Title>
-      <CartItem>
-        <h3>{language.finishAndPay.deliveryAddress}</h3>
-        <React.Fragment>
-          <p>{user.adress}</p>
-          <p>
-            {user.city} {user.postcode}
-          </p>
-        </React.Fragment>
-      </CartItem>
-      <PriceContainer>
-        <strong>
-          + £{finnishAndPayState.deliveryPrice} {language.finishAndPay.plusDelivery}
-        </strong>
-      </PriceContainer>
+      <Content>
+        <Title>
+          <Truck />
+          <Separator width={25} />
+          {language.finishAndPay.secondStepTitle}
+        </Title>
+        <CartItem>
+          <h3>{language.finishAndPay.deliveryAddress}</h3>
+          <React.Fragment>
+            <p>{user.adress}</p>
+            <p>
+              {user.city} {user.postcode}
+            </p>
+          </React.Fragment>
+        </CartItem>
+        <PriceContainer>
+          <strong>
+            + £{finnishAndPayState.deliveryPrice} {language.finishAndPay.plusDelivery}
+          </strong>
+        </PriceContainer>
+      </Content>
       <TotalContainer>
         <Button onClick={handleNextButton}>
           {language.finishAndPay.secondStepButton} <CreditCardFill />

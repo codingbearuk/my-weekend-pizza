@@ -1,15 +1,15 @@
-import express, { Request, Response } from "express";
-import bodyParser from "body-parser";
-import http from "http";
-import next, { NextApiHandler } from "next";
-import mongoose from "mongoose";
-import fileupload from "express-fileupload";
+import express, { Request, Response } from 'express';
+import bodyParser from 'body-parser';
+import http from 'http';
+import next, { NextApiHandler } from 'next';
+import mongoose from 'mongoose';
+import fileupload from 'express-fileupload';
 
-import getRoutes from "./routes/get";
-import postRoutes from "./routes/post";
-import deleteRoutes from "./routes/delete";
+import getRoutes from './routes/get';
+import postRoutes from './routes/post';
+import deleteRoutes from './routes/delete';
 
-const dev = process.env.NODE_ENV !== "production";
+const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const server = express();
 const handle = app.getRequestHandler();
@@ -23,15 +23,15 @@ class Server {
   constructor(handle: any) {
     this.handle = handle;
     const servApp = http.createServer(server);
-    server.use(express.static("public"));
+    server.use(express.static('public'));
     server.use(bodyParser.json());
     server.use(
       fileupload({
         useTempFiles: true,
-        tempFileDir: "/tmp/",
+        tempFileDir: '/tmp/',
         limits: { fileSize: 50 * 1024 * 1024 },
         abortOnLimit: true,
-        responseOnLimit: "File size limit has been reached",
+        responseOnLimit: 'File size limit has been reached',
       })
     );
     this.database();
@@ -45,42 +45,45 @@ class Server {
   }
 
   get() {
-    server.get("/test", getRoutes.test);
+    server.get('/test', getRoutes.test);
     // get pizzas
-    server.get("/pizza/:pizzaID", getRoutes.getOnePizza);
-    server.get("/pizzas", getRoutes.getPizzas);
+    server.get('/pizza/:pizzaID', getRoutes.getOnePizza);
+    server.get('/pizzas', getRoutes.getPizzas);
     // get sauce
-    server.get("/sauce/:sauceID", getRoutes.getOneSauce);
-    server.get("/sauces", getRoutes.getSauces);
+    server.get('/sauce/:sauceID', getRoutes.getOneSauce);
+    server.get('/sauces', getRoutes.getSauces);
     // next routes
-    server.get("*", this.handle);
+    server.get('*', this.handle);
   }
 
   post() {
-    server.post("/test", postRoutes.test);
+    server.post('/test', postRoutes.test);
     // login system routes
-    server.post("/register", postRoutes.register);
-    server.post("/login", postRoutes.login);
-    server.post("/authorisation", postRoutes.authorisation);
+    server.post('/register', postRoutes.register);
+    server.post('/login', postRoutes.login);
+    server.post('/authorisation', postRoutes.authorisation);
     // upload routes
-    server.post("/upload/pizza", postRoutes.pizzaPhotoUpload);
-    server.post("/upload/sauce", postRoutes.saucePhotoUpload);
+    server.post('/upload/pizza', postRoutes.pizzaPhotoUpload);
+    server.post('/upload/sauce', postRoutes.saucePhotoUpload);
     // panel routes
-    server.post("/panel/add-pizza", postRoutes.addPizza);
-    server.post("/panel/add-sauce", postRoutes.addSauce);
+    server.post('/panel/add-pizza', postRoutes.addPizza);
+    server.post('/panel/add-sauce', postRoutes.addSauce);
+    // online payment
+    server.post('/create-checkout-session', postRoutes.createCheckoutSession);
+    server.post('/payment/finnish-order', postRoutes.finnishOrder);
   }
 
   delete() {
-    server.delete("/test", deleteRoutes.test);
-    server.delete("/pizza", deleteRoutes.deletePizza);
-    server.delete("/sauce", deleteRoutes.deleteSauce);
+    server.delete('/test', deleteRoutes.test);
+    server.delete('/pizza', deleteRoutes.deletePizza);
+    server.delete('/sauce', deleteRoutes.deleteSauce);
   }
 
   database() {
     mongoose
       .connect(process.env.DB_URI, { useNewUrlParser: true })
-      .then(() => console.log("connected to database"))
-      .catch((err) => console.error(err));
+      .then(() => console.log('connected to database'))
+      .catch(err => console.error(err));
   }
 }
 
@@ -89,7 +92,7 @@ app
   .then(() => {
     new Server(handle);
   })
-  .catch((ex) => {
+  .catch(ex => {
     console.error(ex.stack);
     process.exit(1);
   });

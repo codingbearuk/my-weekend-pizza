@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { XCircle } from 'react-bootstrap-icons';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
 import StageDots from 'components/UI/stage-dots';
 
@@ -26,6 +28,10 @@ interface ViewType {
 }
 
 const View: React.FunctionComponent<ViewType> = p => {
+  const publicKey: string =
+    'pk_test_51HJQuYLdXVP8SwrclLKdz1gUe5iYZqbl7c4vjAZQX7zBjITqUZYzHJoZAqgJQoJH8yIXVL0qLYVSbrRBMwOPUgQe00WlXEHY1G';
+  const stripePromise = loadStripe(publicKey);
+
   const containerRef = useRef();
   const windowRef = useRef();
 
@@ -34,7 +40,12 @@ const View: React.FunctionComponent<ViewType> = p => {
       return <FirstStage setStage={p.handlers.setStage} setNoStages={p.handlers.setNoStages} />;
     else if (p.stage === 2)
       return <SecondStage setStage={p.handlers.setStage} setNoStages={p.handlers.setNoStages} />;
-    else if (p.stage === 3) return <ThirdStage />;
+    else if (p.stage === 3)
+      return (
+        <Elements stripe={stripePromise}>
+          <ThirdStage />
+        </Elements>
+      );
   };
 
   useEffect(() => {

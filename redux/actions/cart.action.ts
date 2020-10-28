@@ -25,3 +25,10 @@ export function removeFromCartAction(cartItem: CartItem): Action {
     payload: cartItem,
   };
 }
+
+export function restoreCart(cart: Array<CartItem>): Action {
+  return {
+    type: 'RESTORE_SHOPPING_CART',
+    payload: cart,
+  };
+}

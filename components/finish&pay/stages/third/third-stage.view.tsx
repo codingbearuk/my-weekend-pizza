@@ -2,31 +2,31 @@ import React from 'react';
 import { CreditCardFill } from 'react-bootstrap-icons';
 import language from 'language-sources';
 import Separator from 'components/UI/separator';
-import Input from 'components/UI/input';
 
 import {
   Container,
+  Content,
   Title,
   TotalContainer,
+  TotalPrice,
   Button,
   PaymentContainer,
-  LoadingContainer,
+  CartItem,
 } from '../stages.styles';
 
 interface ViewType {
   handlers: {
     handleNextButton: VoidFunction;
-    handleInputs: (value: string, inputName: string) => void;
   };
   fullPrice: number;
-  isLoading: boolean;
+  deliveryPrice: number;
+  cartItems: Array<{ name: string; price: number; size?: string; amount?: number }>;
 }
 
 const View: React.FunctionComponent<ViewType> = p => {
-  if (p.isLoading) return <LoadingContainer>{language.finishAndPay.loading}</LoadingContainer>;
-  else
-    return (
-      <Container>
+  return (
+    <Container>
+      <Content>
         <Title>
           {language.finishAndPay.thirdStepTitle}
           <Separator width={25} />
@@ -34,51 +34,42 @@ const View: React.FunctionComponent<ViewType> = p => {
         </Title>
         <Separator height={20} />
         <PaymentContainer>
-          <h2>
-            {language.finishAndPay.thirdStepSubTitle} £{p.fullPrice.toFixed(2)}
-          </h2>
-          <Separator height={50} />
-          <section>
-            <Input
-              iconName='FilePersonFill'
-              title={language.finishAndPay.inputs.nameOnCard}
-              name='name'
-              callback={p.handlers.handleInputs}
-            />
-            <Separator height={10} />
-            <Input
-              iconName='CreditCardFill'
-              title={language.finishAndPay.inputs.cardNo}
-              name='number'
-              callback={p.handlers.handleInputs}
-            />
-            <Separator height={10} />
-            <section>
-              <Input
-                iconName='CalendarDateFill'
-                title={language.finishAndPay.inputs.express}
-                name='express'
-                callback={p.handlers.handleInputs}
-              />
-              <div />
-              <Input
-                iconName='CreditCard2FrontFill'
-                title={language.finishAndPay.inputs.cvv}
-                name='cvv'
-                callback={p.handlers.handleInputs}
-              />
-            </section>
-          </section>
+          {p.cartItems.map((item, index) => (
+            <CartItem key={index + index * 2}>
+              <h3>{item.name}</h3>
+              <p>
+                {item.size ? (
+                  <>
+                    <strong>pizza size: </strong>
+                    {item.size}
+                  </>
+                ) : (
+                  <>
+                    <strong>amount: </strong>
+                    {item.amount} items
+                  </>
+                )}
+              </p>
+              <p>£{item.price}</p>
+            </CartItem>
+          ))}
+          <CartItem>
+            <h3>{language.finishAndPay.deliveryPrice}:</h3>
+            <p>£{p.deliveryPrice}</p>
+          </CartItem>
         </PaymentContainer>
+      </Content>
 
-        <TotalContainer>
-          <div />
-          <Button onClick={p.handlers.handleNextButton}>
-            {language.finishAndPay.thirdStepButton} <CreditCardFill />
-          </Button>
-        </TotalContainer>
-      </Container>
-    );
+      <TotalContainer>
+        <TotalPrice>
+          {language.finishAndPay.totalPriceToPay}: £{p.fullPrice.toFixed(2)}
+        </TotalPrice>
+        <Button onClick={p.handlers.handleNextButton}>
+          {language.finishAndPay.thirdStepButton} <CreditCardFill />
+        </Button>
+      </TotalContainer>
+    </Container>
+  );
 };
 
 export default View;

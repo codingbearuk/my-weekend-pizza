@@ -13,6 +13,9 @@ export default (state = initialState, action: Action) => {
       const index: number = idArray.indexOf(action.payload._id);
       state.splice(index, 1);
       return state;
+    case 'RESTORE_SHOPPING_CART':
+      state = action.payload;
+      return state;
     default:
       return state;
   }

@@ -8,6 +8,7 @@ import Separator from 'components/UI/separator';
 
 import {
   Container,
+  Content,
   Title,
   CartItem,
   TotalContainer,
@@ -28,35 +29,37 @@ const FirstStage: React.FunctionComponent<FirstStageType> = p => {
 
   return (
     <Container>
-      <Title>
-        <CardChecklist />
-        <Separator width={25} />
-        {language.finishAndPay.firstStepTitle}
-      </Title>
-      <Separator height={20} />
-      <div>
-        {cart.map(item => (
-          <CartItem key={item._id}>
-            <h3>{item.name}</h3>
-            <p>
-              {item.size ? (
-                <>
-                  <strong>pizza size: </strong>
-                  {item.size}
-                </>
-              ) : (
-                <>
-                  <strong>amount: </strong>
-                  {item.amount} items
-                </>
-              )}
-            </p>
-            <PriceContainer>
-              <strong>Price: </strong>£{getPrice(item.price, item.size, item.amount).toFixed(2)}
-            </PriceContainer>
-          </CartItem>
-        ))}
-      </div>
+      <Content>
+        <Title>
+          <CardChecklist />
+          <Separator width={25} />
+          {language.finishAndPay.firstStepTitle}
+        </Title>
+        <Separator height={20} />
+        <div>
+          {cart.map(item => (
+            <CartItem key={item._id}>
+              <h3>{item.name}</h3>
+              <p>
+                {item.size ? (
+                  <>
+                    <strong>pizza size: </strong>
+                    {item.size}
+                  </>
+                ) : (
+                  <>
+                    <strong>amount: </strong>
+                    {item.amount} items
+                  </>
+                )}
+              </p>
+              <PriceContainer>
+                <strong>Price: </strong>£{getPrice(item.price, item.size, item.amount).toFixed(2)}
+              </PriceContainer>
+            </CartItem>
+          ))}
+        </div>
+      </Content>
       <TotalContainer>
         <Button
           onClick={() => {
