@@ -13,6 +13,7 @@ const createCheckoutSession: Route = async (req, res) => {
     address: string;
     phone: string;
   } = req.body.address;
+  const deliveryDate: Date = new Date(req.body.deliveryDate);
 
   const document = {
     order_id: id,
@@ -21,6 +22,7 @@ const createCheckoutSession: Route = async (req, res) => {
     totalPrice: price,
     paymentSuccess: false,
     status: 'pending_payment',
+    date: deliveryDate,
   };
 
   const orderToSave = new OrderModel(document);

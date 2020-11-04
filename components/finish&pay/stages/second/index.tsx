@@ -1,25 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Truck, CreditCardFill } from 'react-bootstrap-icons';
-
-import {
-  Container,
-  Content,
-  Title,
-  CartItem,
-  Button,
-  PriceContainer,
-  DeliveryAddressInputsContainer,
-  TotalContainer,
-  TotalPrice,
-} from '../stages.styles';
-import getTotal from '../getTotal';
-
-import language from 'language-sources';
 import { RootState } from 'redux/reducers';
-import Separator from 'components/UI/separator';
 import locationKey from 'locationQ';
 import { setDeliveryPrice } from 'redux/actions/finish&pay.action';
+import { setHours, setMinutes } from 'date-fns';
+
+import View from './second.view';
+import { setDeliveryDate as setDeliveryDateAction } from 'redux/actions/finish&pay.action';
 
 interface SecondStageType {
   setStage: (stage: number) => void;
@@ -27,9 +14,8 @@ interface SecondStageType {
 }
 
 const SecondStage: React.FunctionComponent<SecondStageType> = p => {
-  const cart = useSelector((s: RootState) => s.cart);
+  const [deliveryDate, setDeliveryDate] = useState<Date>(setHours(setMinutes(new Date(), 30), 13));
   const user = useSelector((s: RootState) => s.user);
-  const finnishAndPayState = useSelector((s: RootState) => s.finishAndPay);
 
   const dispatch = useDispatch();
 
@@ -66,41 +52,59 @@ const SecondStage: React.FunctionComponent<SecondStageType> = p => {
     p.setStage(3);
   }, []);
 
+  const handleSetDate = date => {
+    setDeliveryDate(date);
+    dispatch(setDeliveryDateAction(date));
+  };
+
+  const handleSetStartAndEndDate = (): { start: Date; end: Date } => {
+    const today: Date = setHours(setMinutes(new Date(), 30), 13);
+    const dayOfWeek: number = today.getDay();
+
+    const getNewDate = (plusDays: number): Date => {
+      const date: string = `${today.getMonth() + 1}.${today.getDate() + plusDays}.${today.getFullYear()}`;
+      return setHours(setMinutes(new Date(date), 0), 12);
+    };
+
+    const toReturn = (startDays: number, endDays: number): { start: Date; end: Date } => {
+      const objectToReturn = { start: getNewDate(startDays), end: getNewDate(endDays) };
+      return objectToReturn;
+    };
+
+    switch (dayOfWeek) {
+      case 0:
+        return toReturn(0, 0);
+      case 1:
+        return toReturn(5, 6);
+      case 2:
+        return toReturn(4, 5);
+      case 3:
+        return toReturn(3, 4);
+      case 4:
+        return toReturn(2, 3);
+      case 5:
+        return toReturn(1, 2);
+      case 6:
+        return toReturn(0, 1);
+    }
+  };
+
   useEffect(() => {
     getDeliveryPrice();
+    setDeliveryDate(handleSetStartAndEndDate().start);
+    dispatch(setDeliveryDateAction(handleSetStartAndEndDate().start));
   }, []);
 
-  return (
-    <Container>
-      <Content>
-        <Title>
-          <Truck />
-          <Separator width={25} />
-          {language.finishAndPay.secondStepTitle}
-        </Title>
-        <CartItem>
-          <h3>{language.finishAndPay.deliveryAddress}</h3>
-          <React.Fragment>
-            <p>{user.adress}</p>
-            <p>
-              {user.city} {user.postcode}
-            </p>
-          </React.Fragment>
-        </CartItem>
-        <PriceContainer>
-          <strong>
-            + £{finnishAndPayState.deliveryPrice} {language.finishAndPay.plusDelivery}
-          </strong>
-        </PriceContainer>
-      </Content>
-      <TotalContainer>
-        <Button onClick={handleNextButton}>
-          {language.finishAndPay.secondStepButton} <CreditCardFill />
-        </Button>
-        <TotalPrice>Total: £{(getTotal(cart) + finnishAndPayState.deliveryPrice).toFixed(2)}</TotalPrice>
-      </TotalContainer>
-    </Container>
-  );
+  return View({
+    state: {
+      deliveryDate,
+    },
+    handlers: {
+      handleNextButton,
+      handleSetDate,
+      handleSetStartAndEndDate,
+    },
+  });
 };
 
 export default SecondStage;

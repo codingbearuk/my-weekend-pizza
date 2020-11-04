@@ -20,6 +20,7 @@ const ThirdStep: React.FunctionComponent<ThirdStepType> = p => {
     const paymentSessionID: any = await POST('/create-checkout-session', {
       amount: fullPrice(),
       cart: JSON.stringify(cart),
+      deliveryDate: finnishAndPayState.deliveryDate,
       address: {
         city: user.city,
         postcode: user.postcode,

@@ -92,3 +92,42 @@ export const LoadingContainer = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const DateContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  svg {
+    color: ${colors.red};
+    font-size: 1.4em;
+  }
+  input {
+    border: 1px solid ${colors.yellow};
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 10px;
+  }
+  .react-datepicker {
+    .react-datepicker__triangle {
+      border-bottom-color: ${colors.yellow};
+    }
+    .react-datepicker__header,
+    .react-datepicker__current-month,
+    .react-datepicker-time__header,
+    .react-datepicker__day-name {
+      background: ${colors.yellow};
+      color: ${colors.red}!important;
+    }
+    .react-datepicker__day--selected {
+      background: ${colors.red};
+    }
+    .react-datepicker__time-container
+      .react-datepicker__time
+      .react-datepicker__time-box
+      ul.react-datepicker__time-list
+      li.react-datepicker__time-list-item--selected {
+      background-color: ${colors.red};
+    }
+  }
+`;

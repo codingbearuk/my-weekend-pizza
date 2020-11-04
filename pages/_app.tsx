@@ -7,6 +7,7 @@ import { Provider, useSelector, useDispatch } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import store from '../redux/store';
 import { RootState } from 'redux/reducers/index';
+import 'react-datepicker/dist/react-datepicker.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

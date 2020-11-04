@@ -3,11 +3,13 @@ import Action from 'redux/actions/@action.t';
 interface State {
   isOpen: boolean;
   deliveryPrice: number;
+  deliveryDate: Date;
 }
 
 const initial = {
   isOpen: false,
   deliveryPrice: 1,
+  deliveryDate: new Date(),
 };
 
 export default (state: State = initial, action: Action): State => {
@@ -20,6 +22,9 @@ export default (state: State = initial, action: Action): State => {
       return state;
     case 'SET_DELIVERY_PRICE':
       state = { ...state, deliveryPrice: action.payload };
+      return state;
+    case 'SET_DELIVERY_DATE':
+      state = { ...state, deliveryDate: action.payload };
       return state;
 
     default:

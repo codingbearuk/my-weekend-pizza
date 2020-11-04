@@ -9,6 +9,7 @@ export interface OrderSchema extends Document {
     postcode: string;
     address: string;
     phone: string;
+    deliveryDate: Date;
   };
   totalPrice: number;
   paymentSuccess: boolean;
@@ -22,6 +23,7 @@ const orderSchema = new Schema({
   totalPrice: { type: Number, required: true },
   paymentSuccess: { type: Boolean, required: true },
   status: { type: String, required: true },
+  date: { type: String, required: true },
 });
 
 export default mongoose.model<OrderSchema>('order', orderSchema);

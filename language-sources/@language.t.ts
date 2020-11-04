@@ -64,6 +64,7 @@ type Language = {
     secondStepButton: string;
     thirdStepButton: string;
     deliveryAddress: string;
+    deliveryTime: string;
     changeAddress: string;
     cancel: string;
     submit: string;
