@@ -35,6 +35,7 @@ type Language = {
   };
   userMenu: {
     logout: string;
+    changeAddress: string;
   };
   selectPizza: {
     title: string;

@@ -10,10 +10,13 @@ import SelectPizza from 'components/select-pizza';
 import SelectSauce from 'components/select-sauce';
 import GET from 'api-comunication/get';
 import FinishAndPay from 'components/finish&pay';
+import ChangeAddress from 'components/change-address';
 import { RootState } from 'redux/reducers/index';
 
 const IndexPage: NextPage<{ pizzas: any; sauces: any; payment?: any }> = p => {
   const isPaymentPageOpen = useSelector((s: RootState) => s.finishAndPay.isOpen);
+  const isChangeAddressModalActive = useSelector((s: RootState) => s.changeAddress.isActive);
+
   return (
     <BasicLayout>
       <title>My weekend pizza</title>
@@ -23,6 +26,7 @@ const IndexPage: NextPage<{ pizzas: any; sauces: any; payment?: any }> = p => {
       <SelectSauce sauces={p.sauces} />
       {isPaymentPageOpen && <FinishAndPay />}
       {p.payment && <PaymentSucces state={p.payment} />}
+      {isChangeAddressModalActive && <ChangeAddress />}
     </BasicLayout>
   );
 };

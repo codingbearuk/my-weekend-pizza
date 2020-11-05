@@ -7,6 +7,11 @@ const userMenu: Array<MenuItem> = [
     title: language.userMenu.logout,
     iconName: 'ArrowDownLeftSquare',
   },
+  {
+    name: 'changeAddress',
+    title: language.userMenu.changeAddress,
+    iconName: 'HouseFill',
+  },
 ];
 
 export default userMenu;

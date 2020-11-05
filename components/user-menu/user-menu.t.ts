@@ -6,4 +6,5 @@ export interface ViewTypes {
 
 export interface MenuMethods {
   logout: VoidFunction;
+  changeAddress: VoidFunction;
 }

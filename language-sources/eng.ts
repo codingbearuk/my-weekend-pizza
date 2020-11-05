@@ -38,6 +38,7 @@ const eng: Language = {
   },
   userMenu: {
     logout: 'logout',
+    changeAddress: 'change address',
   },
   selectPizza: {
     title: 'select your pizza',

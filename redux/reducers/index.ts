@@ -9,6 +9,7 @@ import user from './login.reducer';
 import pageScroll from './page-scroll.reducer';
 import finishAndPay from './finish&pay.reducer';
 import device from './device.reducer';
+import changeAddress from './changeAddress.reducer';
 
 const rootReducer = combineReducers({
   cart,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   pageScroll,
   finishAndPay,
   device,
+  changeAddress,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
