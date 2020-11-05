@@ -8,6 +8,10 @@ export const Container = styled.div`
   background-size: 100% 100%;
   background-repeat: no-repeat;
   z-index: 50;
+  @media (max-width: 500px) {
+    background-size: 200% 100%;
+    background-position: 50% 100%;
+  }
 `;
 
 export const Logo = styled.img`
@@ -17,6 +21,11 @@ export const Logo = styled.img`
   transform: translateY(-50%);
   height: 35%;
   z-index: 50;
+
+  @media (max-width: 500px) {
+    height: 20%;
+    left: 5%;
+  }
 `;
 
 export const ButtonContainer = styled.div`

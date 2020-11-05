@@ -20,6 +20,9 @@ export const Container = styled.div<{}>`
     margin: 20px 0;
     font-size: 1.3em;
   }
+  @media (max-width: 500px) {
+    justify-content: space-between;
+  }
 `;
 export const Content = styled.div`
   overflow-y: auto;
@@ -40,12 +43,22 @@ export const Content = styled.div`
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: ${colors.red};
   }
+
+  @media (max-width: 500px) {
+    max-height: 90vh;
+    height: 90vh;
+  }
 `;
 
 export const CartContent = styled.div`
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
   width: 100%;
+  @media (max-width: 500px) {
+    height: 100%;
+    grid-template-columns: 33.333% 33.333% 33.333%;
+    grid-template-rows: 50% 50%;
+  }
 `;
 
 export const Footer = styled.footer`

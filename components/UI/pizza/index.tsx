@@ -2,6 +2,8 @@ import React, { useState, useCallback, useRef } from 'react';
 import CarretButton from 'components/UI/carret-button';
 import { Form } from 'react-bootstrap';
 import language from 'language-sources';
+import { useSelector } from 'react-redux';
+import { RootState } from 'redux/reducers';
 
 import { Container, IngredientsContainer, Price, DisplayOnHover } from './pizza.styles';
 import { Pizza as PizzaType } from 'components/select-pizza/select-pizza.t';
@@ -14,13 +16,12 @@ interface PizzaComponent {
 
 const Pizza: React.FunctionComponent<PizzaComponent> = p => {
   const [isHover, setHover] = useState<boolean>(false);
+  const device = useSelector((s: RootState) => s.device.resolution);
 
   const sizeRef: React.RefObject<HTMLSelectElement> = useRef();
 
-  const handleHover = useCallback(() => setHover(!isHover), [isHover]);
-
   return (
-    <Container onMouseEnter={handleHover} onMouseLeave={handleHover} isHover={isHover}>
+    <Container onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} isHover={isHover}>
       <img src={`/images/pizzas/${p.pizza.image}`} alt={p.pizza.name} />
       <h2>{p.pizza.name}</h2>
       <IngredientsContainer>
@@ -28,7 +29,7 @@ const Pizza: React.FunctionComponent<PizzaComponent> = p => {
       </IngredientsContainer>
       <Separator height={10} />
       <Price>£{p.pizza.price.toFixed(2)}</Price>
-      {isHover ? (
+      {isHover || device === 'mobile' ? (
         <DisplayOnHover>
           <Form.Control as='select' size='sm' ref={sizeRef}>
             <option>{language.selectPizza.small}</option>

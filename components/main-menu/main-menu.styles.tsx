@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-import colors from "styled/colors";
+import colors from 'styled/colors';
 
 export const Container = styled.div<{}>`
   position: fixed;
@@ -30,6 +30,10 @@ export const MenuBox = styled.nav<{}>`
 
   h1 {
     text-transform: uppercase;
+  }
+
+  @media (max-width: 500px) {
+    width: 80vw;
   }
 `;
 

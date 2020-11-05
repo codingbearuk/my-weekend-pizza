@@ -15,6 +15,7 @@ const CartMenu: React.FunctionComponent<CartMenuType> = p => {
 
   const cartContent: Array<CartItem> = useSelector((s: RootState) => s.cart);
   const isUserLogged: boolean = useSelector((s: RootState) => s.user.isLogged);
+  const device: string = useSelector((s: RootState) => s.device.resolution);
 
   const dispatch = useDispatch();
 
@@ -55,7 +56,7 @@ const CartMenu: React.FunctionComponent<CartMenuType> = p => {
       },
       {
         opacity: 1,
-        height: 'auto',
+        height: device === 'mobile' ? '85%' : 'auto',
         duration: 0.4,
       }
     );

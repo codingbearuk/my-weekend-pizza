@@ -8,6 +8,7 @@ import Popup from 'components/UI/popup';
 import { colsePopup } from 'redux/actions/popup.action';
 import { loginUser } from 'redux/actions/login.action';
 import { setPageScrollTrue, setPageScrollFalse } from 'redux/actions/page-scroll.actions';
+import { setMobile, setDesktop } from 'redux/actions/device.action';
 import { loginEventHandle, LoginEvent } from 'utils/custom-events/login.event';
 import { handleLogoutEvent } from 'utils/custom-events/logout.event';
 
@@ -45,11 +46,22 @@ const BasicLayout: FunctionComponent = ({ children }) => {
     document.addEventListener('scroll', getScroll);
   };
 
+  const setDevice = (): void => {
+    const setDevice = (): void => {
+      const displayWidth = window.innerWidth;
+      if (displayWidth > 500) dispatch(setDesktop());
+      else dispatch(setMobile());
+    };
+    setDevice();
+    window.addEventListener('resize', setDevice);
+  };
+
   useEffect(() => {
     loginListener();
     loginUserIfSessionID();
     logoutListener();
     handlePageScroll();
+    setDevice();
   }, []);
 
   return (

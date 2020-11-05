@@ -7,4 +7,8 @@ export const SaucesContainer = styled.div<{}>`
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   margin: 0 10%;
+
+  @media (max-width: 500px) {
+    grid-template-columns: 100%;
+  }
 `;
