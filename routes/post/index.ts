@@ -8,6 +8,7 @@ import saucePhotoUpload from './sauce-photo-upload';
 import addSauce from './add-sauce';
 import createCheckoutSession from './create-checkout-session';
 import finnishOrder from './finnish-order';
+import updateUserDetails from './update-user-details';
 
 const index = {
   test,
@@ -20,6 +21,7 @@ const index = {
   addSauce,
   createCheckoutSession,
   finnishOrder,
+  updateUserDetails,
 };
 
 export default index;

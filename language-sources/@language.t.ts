@@ -91,6 +91,18 @@ type Language = {
       content: string;
     };
   };
+  changeAddressModal: {
+    title: string;
+    loading: string;
+    button: string;
+    updated: string;
+    inputs: {
+      address: string;
+      city: string;
+      postcode: string;
+      phone: string;
+    };
+  };
 };
 
 export default Language;

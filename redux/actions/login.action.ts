@@ -46,6 +46,11 @@ export const loginUser = () => dispatch => {
   });
 };
 
+export const changeDetails = (name: string, value: string): Action => ({
+  type: 'CHANGE_DETAILS',
+  payload: { name, value },
+});
+
 export const logoutUser = (): Action => {
   localStorage.removeItem('sessionID');
   return {

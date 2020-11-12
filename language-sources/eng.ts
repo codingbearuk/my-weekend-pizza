@@ -94,6 +94,18 @@ const eng: Language = {
       content: 'try again - your shopping trolley has ben saved',
     },
   },
+  changeAddressModal: {
+    title: 'change my delivery details',
+    loading: 'updating your details',
+    button: 'update',
+    updated: 'details updated successfully',
+    inputs: {
+      address: 'address',
+      city: 'city',
+      postcode: 'postcode',
+      phone: 'phone number',
+    },
+  },
 };
 
 export default eng;

@@ -58,10 +58,11 @@ class Server {
 
   post() {
     server.post('/test', postRoutes.test);
-    // login system routes
+    // login system & user routes
     server.post('/register', postRoutes.register);
     server.post('/login', postRoutes.login);
     server.post('/authorisation', postRoutes.authorisation);
+    server.post('/update-user-details', postRoutes.updateUserDetails);
     // upload routes
     server.post('/upload/pizza', postRoutes.pizzaPhotoUpload);
     server.post('/upload/sauce', postRoutes.saucePhotoUpload);
