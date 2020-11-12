@@ -52,6 +52,8 @@ class Server {
     // get sauce
     server.get('/sauce/:sauceID', getRoutes.getOneSauce);
     server.get('/sauces', getRoutes.getSauces);
+    // finnish order
+    server.get('/finnish-order/:id', getRoutes.finnishOrder);
     // next routes
     server.get('*', this.handle);
   }

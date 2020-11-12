@@ -43,8 +43,8 @@ const createCheckoutSession: Route = async (req, res) => {
       },
     ],
     mode: 'payment',
-    success_url: `http://localhost:3030?payment=success&id=${id}/`,
-    cancel_url: `http://localhost:3030?payment=cancel&id=${id}/`,
+    success_url: `${process.env.HOST}/finnish-order/${id}`,
+    cancel_url: `${process.env.HOST}?payment=cancel&id=${id}/`,
   });
 
   if (session)

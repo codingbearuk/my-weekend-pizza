@@ -19,13 +19,13 @@ const PaymentSucces: React.FunctionComponent<PaymentSuccesType> = p => {
   const paymentStatus: any = router.query.payment;
 
   const handleSaveOrder = useCallback(async () => {
-    let req: any;
-    do {
-      req = await POST('/payment/finnish-order', {
-        status: 'success',
-        id: orderID,
-      });
-    } while (req.status !== 'ok');
+    // let req: any;
+    // do {
+    //   req = await POST('/payment/finnish-order', {
+    //     status: 'success',
+    //     id: orderID,
+    //   });
+    // } while (req.status !== 'ok');
     window.localStorage.removeItem(orderID);
   }, []);
 
