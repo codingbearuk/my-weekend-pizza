@@ -103,6 +103,9 @@ type Language = {
       phone: string;
     };
   };
+  howToFindUs: {
+    title: string;
+  };
 };
 
 export default Language;

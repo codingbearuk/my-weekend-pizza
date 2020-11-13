@@ -106,6 +106,9 @@ const eng: Language = {
       phone: 'phone number',
     },
   },
+  howToFindUs: {
+    title: 'How to find us',
+  },
 };
 
 export default eng;

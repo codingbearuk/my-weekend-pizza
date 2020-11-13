@@ -1,6 +1,8 @@
 import React from 'react';
 import { NextPage } from 'next';
 import { useSelector } from 'react-redux';
+import { RootState } from 'redux/reducers/index';
+import GET from 'api-comunication/get';
 
 import BasicLayout from '../layouts/basic.layout';
 import PaymentSucces from 'components/payment-succes';
@@ -8,10 +10,9 @@ import Navbar from 'components/navbar';
 import WelcomeScreen from 'components/welcome-screen';
 import SelectPizza from 'components/select-pizza';
 import SelectSauce from 'components/select-sauce';
-import GET from 'api-comunication/get';
 import FinishAndPay from 'components/finish&pay';
 import ChangeAddress from 'components/change-address';
-import { RootState } from 'redux/reducers/index';
+import HowToFindUs from 'components/how-to-find-us';
 
 const IndexPage: NextPage<{ pizzas: any; sauces: any; payment?: any }> = p => {
   const isPaymentPageOpen = useSelector((s: RootState) => s.finishAndPay.isOpen);
@@ -24,6 +25,7 @@ const IndexPage: NextPage<{ pizzas: any; sauces: any; payment?: any }> = p => {
       <WelcomeScreen />
       <SelectPizza pizzas={p.pizzas} />
       <SelectSauce sauces={p.sauces} />
+      <HowToFindUs />
       {isPaymentPageOpen && <FinishAndPay />}
       {p.payment && <PaymentSucces state={p.payment} />}
       {isChangeAddressModalActive && <ChangeAddress />}
