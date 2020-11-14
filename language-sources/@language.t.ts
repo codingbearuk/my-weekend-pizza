@@ -106,6 +106,9 @@ type Language = {
   howToFindUs: {
     title: string;
   };
+  footer: {
+    title: string;
+  };
 };
 
 export default Language;

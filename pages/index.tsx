@@ -13,6 +13,7 @@ import SelectSauce from 'components/select-sauce';
 import FinishAndPay from 'components/finish&pay';
 import ChangeAddress from 'components/change-address';
 import HowToFindUs from 'components/how-to-find-us';
+import Footer from 'components/footer';
 
 const IndexPage: NextPage<{ pizzas: any; sauces: any; payment?: any }> = p => {
   const isPaymentPageOpen = useSelector((s: RootState) => s.finishAndPay.isOpen);
@@ -26,6 +27,7 @@ const IndexPage: NextPage<{ pizzas: any; sauces: any; payment?: any }> = p => {
       <SelectPizza pizzas={p.pizzas} />
       <SelectSauce sauces={p.sauces} />
       <HowToFindUs />
+      <Footer />
       {isPaymentPageOpen && <FinishAndPay />}
       {p.payment && <PaymentSucces state={p.payment} />}
       {isChangeAddressModalActive && <ChangeAddress />}

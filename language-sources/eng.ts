@@ -109,6 +109,9 @@ const eng: Language = {
   howToFindUs: {
     title: 'How to find us',
   },
+  footer: {
+    title: 'Contact us',
+  },
 };
 
 export default eng;
