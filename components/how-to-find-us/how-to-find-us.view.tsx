@@ -2,6 +2,7 @@ import React from 'react';
 import Title from 'components/UI/title';
 import language from 'language-sources';
 import { PhoneFill, At } from 'react-bootstrap-icons';
+import Separator from 'components/UI/separator';
 
 import { Container, ContentContainer, MapContainer, DetailsContainer } from './how-to-find-us.styled';
 
@@ -34,12 +35,15 @@ const View: React.FunctionComponent<ViewType> = p => {
           <h3>{p.details.address}</h3>
           <h3>{p.details.city}</h3>
           <h3>{p.details.postcode}</h3>
+          <Separator height={30} />
           <div>
             <PhoneFill />
+            <Separator width={5} />
             <p>{p.details.phone}</p>
           </div>
           <div>
             <At />
+            <Separator width={5} />
             <p>{p.details.email}</p>
           </div>
         </DetailsContainer>
