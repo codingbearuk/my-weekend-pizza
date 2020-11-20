@@ -6,7 +6,7 @@ import Animation from 'react-useanimations';
 import loading from 'react-useanimations/lib/loading';
 import { yellow } from 'styled/colors';
 
-import { Container, Content, InputsContainer, Textarea, Button } from './footer.styles';
+import { Container, Content, InputsContainer, Textarea, Button, SentMsg } from './footer.styles';
 import Separator from 'components/UI/separator';
 
 interface ViewType {
@@ -14,6 +14,7 @@ interface ViewType {
   handleSubmitForm: VoidFunction;
   message: string;
   isLoading: boolean;
+  isSent: boolean;
 }
 
 const View: React.FunctionComponent<ViewType> = p => {
@@ -66,6 +67,7 @@ const View: React.FunctionComponent<ViewType> = p => {
             </>
           )}
         </Button>
+        {p.isSent && <SentMsg>{language.footer.inputs.sent}</SentMsg>}
       </Content>
     </Container>
   );

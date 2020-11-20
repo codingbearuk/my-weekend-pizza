@@ -115,6 +115,7 @@ type Language = {
       message: string;
       button: string;
       loading: string;
+      sent: string;
     };
   };
 };

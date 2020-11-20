@@ -9,6 +9,7 @@ import addSauce from './add-sauce';
 import createCheckoutSession from './create-checkout-session';
 import finnishOrder from './finnish-order';
 import updateUserDetails from './update-user-details';
+import createNewMessage from './create-new-message';
 
 const index = {
   test,
@@ -22,6 +23,7 @@ const index = {
   createCheckoutSession,
   finnishOrder,
   updateUserDetails,
+  createNewMessage,
 };
 
 export default index;

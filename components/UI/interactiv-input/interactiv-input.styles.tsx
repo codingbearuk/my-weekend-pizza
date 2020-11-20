@@ -56,4 +56,11 @@ export const Input = styled.input`
   ::placeholder {
     color: ${colors.yellow};
   }
+  :-webkit-autofill,
+  :-webkit-autofill:hover,
+  :-webkit-autofill:focus,
+  :-webkit-autofill:active {
+    transition: background-color 5000s;
+    -webkit-text-fill-color: ${colors.yellow} !important;
+  }
 `;

@@ -118,6 +118,7 @@ const eng: Language = {
       message: 'message',
       button: 'send',
       loading: 'sending your message',
+      sent: 'your message has been sent',
     },
   },
 };

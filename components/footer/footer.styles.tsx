@@ -68,3 +68,9 @@ export const Button = styled.button`
     margin-left: 10px;
   }
 `;
+
+export const SentMsg = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+`;

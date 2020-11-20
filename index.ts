@@ -74,6 +74,8 @@ class Server {
     // online payment
     server.post('/create-checkout-session', postRoutes.createCheckoutSession);
     server.post('/payment/finnish-order', postRoutes.finnishOrder);
+    // messanges from customers
+    server.post('/create-new-message', postRoutes.createNewMessage);
   }
 
   delete() {
