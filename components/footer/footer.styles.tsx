@@ -74,3 +74,17 @@ export const SentMsg = styled.div`
   text-align: center;
   margin-top: 20px;
 `;
+
+export const Footer = styled.footer`
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  background: ${colors.background};
+  font-size: 0.7em;
+  a {
+    color: ${colors.white};
+    :hover {
+      ${colors.red};
+    }
+  }
+`;
