@@ -111,6 +111,14 @@ const eng: Language = {
   },
   footer: {
     title: 'Contact us',
+    inputs: {
+      name: 'name and surname',
+      email: 'email address',
+      subject: 'subject',
+      message: 'message',
+      button: 'send',
+      loading: 'sending your message',
+    },
   },
 };
 

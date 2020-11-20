@@ -108,6 +108,14 @@ type Language = {
   };
   footer: {
     title: string;
+    inputs: {
+      name: string;
+      email: string;
+      subject: string;
+      message: string;
+      button: string;
+      loading: string;
+    };
   };
 };
 

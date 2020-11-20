@@ -53,4 +53,7 @@ export const Input = styled.input`
     padding-left: 0;
     padding-right: 20%;
   }
+  ::placeholder {
+    color: ${colors.yellow};
+  }
 `;

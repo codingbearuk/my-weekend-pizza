@@ -7,19 +7,64 @@ export const Container = styled.footer`
   background-position: right;
   background-repeat: no-repeat;
   background-size: 100%;
-  height: 300px;
 `;
 
 export const Content = styled.div`
   background: ${colors.semiTransparetnWhite};
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(8px);
   width: 100%;
   height: 100%;
-  padding: 20px 10%;
+  padding: 30px 10%;
   h1 {
     color: ${colors.red};
     font-family: 'helvetica';
   }
 `;
 
-export const InputsContainer = styled.div``;
+export const Textarea = styled.textarea`
+  border: 1px solid ${colors.red};
+  border-radius: 10px;
+  flex: 1;
+  background: none;
+  outline: none;
+  color: ${colors.yellow};
+  resize: none;
+  ::placeholder {
+    color: ${colors.yellow};
+    margin: 10px;
+  }
+  :focus {
+    background: ${colors.red};
+  }
+`;
+
+export const InputsContainer = styled.div`
+  display: flex;
+  width: 100%;
+  section {
+    flex: 1;
+  }
+  @media (max-width: 500px) {
+    flex-direction: column;
+    section {
+      margin-bottom: 20px;
+    }
+  }
+`;
+
+export const Button = styled.button`
+  width: 100%;
+  border: 1px solid ${colors.red};
+  border-radius: 5px;
+  padding: 10px;
+  background: ${colors.red};
+  color: ${colors.yellow};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none !important;
+  p {
+    margin: 0;
+    margin-left: 10px;
+  }
+`;
