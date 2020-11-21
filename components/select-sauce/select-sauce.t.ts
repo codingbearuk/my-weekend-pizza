@@ -9,4 +9,5 @@ export interface Sauce {
 
 export interface SelectSauceType {
   sauces: Array<Sauce>;
+  id: string;
 }

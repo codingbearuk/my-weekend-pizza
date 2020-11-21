@@ -10,6 +10,7 @@ import { Container, Content, InputsContainer, Textarea, Button, SentMsg, Footer 
 import Separator from 'components/UI/separator';
 
 interface ViewType {
+  id: string;
   handleInputs: (value: string, name: string) => void;
   handleSubmitForm: VoidFunction;
   message: string;
@@ -19,7 +20,7 @@ interface ViewType {
 
 const View: React.FunctionComponent<ViewType> = p => {
   return (
-    <Container>
+    <Container id={p.id}>
       <Content>
         <h1>{language.footer.title}</h1>
         <Separator height={10} />

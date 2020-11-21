@@ -8,11 +8,12 @@ import { Container, PizzasContainer } from './select-pizza.styles';
 import { Pizza } from './select-pizza.t';
 
 const View: React.FunctionComponent<{
+  id: string;
   pizzas: Array<Pizza>;
   handleAddPizzaToCart: (pizza: Pizza, size: string) => void;
 }> = p => {
   return (
-    <Container>
+    <Container id={p.id}>
       <Title imageName='pizza-logo@2x.png'>{language.selectPizza.title}</Title>
       <Separator height={30} />
       <PizzasContainer>

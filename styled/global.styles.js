@@ -17,14 +17,16 @@ const GlobalStyle = createGlobalStyle`
   
   *, *::before, *::after {
     box-sizing: border-box;
-
+    scroll-behavior: smooth;
   }
-  body{
+
+  body {
     background: ${background};
     color: ${white};
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 
     ::-webkit-scrollbar{
         width: 8px;

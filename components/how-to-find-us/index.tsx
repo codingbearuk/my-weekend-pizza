@@ -2,7 +2,7 @@ import React from 'react';
 
 import View from './how-to-find-us.view';
 
-const HowToFindUs: React.FunctionComponent<{}> = p => {
+const HowToFindUs: React.FunctionComponent<{ id: string }> = p => {
   const details = {
     title: 'My Weekend Pizza',
     address: '2 Queen St',
@@ -12,7 +12,7 @@ const HowToFindUs: React.FunctionComponent<{}> = p => {
     email: 'example@email.com',
   };
 
-  return View({ details });
+  return View({ details, id: p.id });
 };
 
 export default HowToFindUs;

@@ -5,7 +5,7 @@ import { Pizza } from 'components/select-pizza/select-pizza.t';
 import View from './select-pizza.view';
 import { addToCartAction } from 'redux/actions/cart.action';
 
-const SelectPizza: React.FunctionComponent<{ pizzas: Array<Pizza> }> = p => {
+const SelectPizza: React.FunctionComponent<{ pizzas: Array<Pizza>; id: string }> = p => {
   const [pizzasArray, setPizzasArray] = useState(p.pizzas.slice(0, 8));
   const dispatch = useDispatch();
 
@@ -13,7 +13,7 @@ const SelectPizza: React.FunctionComponent<{ pizzas: Array<Pizza> }> = p => {
     const pizzaToAdd = { ...pizza, size };
     dispatch(addToCartAction(pizzaToAdd));
   }, []);
-  return <View {...{ pizzas: pizzasArray, handleAddPizzaToCart }} />;
+  return <View {...{ pizzas: pizzasArray, handleAddPizzaToCart, id: p.id }} />;
 };
 
 export default SelectPizza;

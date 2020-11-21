@@ -24,10 +24,10 @@ const IndexPage: NextPage<{ pizzas: any; sauces: any; payment?: any }> = p => {
       <title>My weekend pizza</title>
       <Navbar />
       <WelcomeScreen />
-      <SelectPizza pizzas={p.pizzas} />
-      <SelectSauce sauces={p.sauces} />
-      <HowToFindUs />
-      <Footer />
+      <SelectPizza pizzas={p.pizzas} id='pizzas' />
+      <SelectSauce sauces={p.sauces} id='sauces' />
+      <HowToFindUs id='find-us' />
+      <Footer id='contact-us' />
       {isPaymentPageOpen && <FinishAndPay />}
       {p.payment && <PaymentSucces state={p.payment} />}
       {isChangeAddressModalActive && <ChangeAddress />}

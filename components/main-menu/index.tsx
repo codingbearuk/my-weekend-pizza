@@ -1,11 +1,11 @@
-import React, { FunctionComponent, useCallback, RefObject } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "redux/reducers";
-import { gsap } from "gsap";
+import React, { FunctionComponent, useCallback, RefObject } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from 'redux/reducers';
+import { gsap } from 'gsap';
 
-import { closeMenu } from "redux/actions/menu.action";
-import {} from "./@main-menu.t";
-import View from "./main-menu.view";
+import { closeMenu } from 'redux/actions/menu.action';
+import {} from './@main-menu.t';
+import View from './main-menu.view';
 
 const MainMenu: FunctionComponent<{}> = ({}) => {
   const mainMenuState = useSelector((s: RootState) => s.mainMenu);
@@ -44,6 +44,13 @@ const MainMenu: FunctionComponent<{}> = ({}) => {
     []
   );
 
+  const handleMenuItemClick = useCallback((id: string) => {
+    const element: HTMLElement = document.getElementById(id);
+    const position: number = element.offsetTop;
+    scrollTo(0, position);
+    handleCloseMainMenu();
+  }, []);
+
   const closeAnimation = useCallback(
     (container: RefObject<HTMLDivElement>, menu: RefObject<HTMLDivElement>) => {
       const tl: gsap.core.Timeline = gsap.timeline({ repeat: 0, delay: 0 });
@@ -63,6 +70,7 @@ const MainMenu: FunctionComponent<{}> = ({}) => {
 
   return (
     <View
+      handleMenuItemClick={handleMenuItemClick}
       closeMenu={handleCloseMainMenu}
       animations={{
         enter: enterAnimation,

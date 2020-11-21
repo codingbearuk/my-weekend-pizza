@@ -35,6 +35,10 @@ const eng: Language = {
   },
   menu: {
     header: 'site menu',
+    pizzas: 'pizza menu',
+    sauces: 'sauce menu',
+    findUs: 'how to find us',
+    contactUs: 'contact us',
   },
   userMenu: {
     logout: 'logout',

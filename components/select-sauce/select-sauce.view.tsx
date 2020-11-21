@@ -10,9 +10,10 @@ import { Sauce as SauceType } from './select-sauce.t';
 const View: React.FunctionComponent<{
   sauces: Array<SauceType>;
   handleAddSauceToCart: (sauce: SauceType, amount: number) => void;
+  id: string;
 }> = p => {
   return (
-    <Container>
+    <Container id={p.id}>
       <Title imageName='sauce-red@2x.png'>{language.selectSauce.title}</Title>
       <Separator height={20} />
       <SaucesContainer>

@@ -7,6 +7,7 @@ import Separator from 'components/UI/separator';
 import { Container, ContentContainer, MapContainer, DetailsContainer } from './how-to-find-us.styled';
 
 interface ViewType {
+  id: string;
   details: {
     title: string;
     address: string;
@@ -19,7 +20,7 @@ interface ViewType {
 
 const View: React.FunctionComponent<ViewType> = p => {
   return (
-    <Container>
+    <Container id={p.id}>
       <Title imageName='map.svg'>{language.howToFindUs.title}</Title>
       <ContentContainer>
         <MapContainer>

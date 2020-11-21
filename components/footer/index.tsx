@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import View from './footer.view';
 import POST from 'api-comunication/post';
 
-const Footer: React.FunctionComponent<{}> = p => {
+const Footer: React.FunctionComponent<{ id: string }> = p => {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [subject, setSubject] = useState<string>('');
@@ -37,7 +37,7 @@ const Footer: React.FunctionComponent<{}> = p => {
     }
   };
 
-  return View({ handleInputs, handleSubmitForm, message, isLoading, isSent });
+  return View({ handleInputs, handleSubmitForm, message, isLoading, isSent, id: p.id });
 };
 
 export default Footer;

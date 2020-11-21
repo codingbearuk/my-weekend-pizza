@@ -32,6 +32,10 @@ type Language = {
   };
   menu: {
     header: string;
+    pizzas: string;
+    sauces: string;
+    findUs: string;
+    contactUs: string;
   };
   userMenu: {
     logout: string;

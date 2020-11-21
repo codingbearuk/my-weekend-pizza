@@ -13,7 +13,7 @@ const SelectSauce: React.FunctionComponent<SelectSauceType> = p => {
     dispatch(addToCartAction(sauceToAdd));
   };
 
-  return <View {...{ sauces: p.sauces, handleAddSauceToCart }} />;
+  return <View {...{ sauces: p.sauces, handleAddSauceToCart, id: p.id }} />;
 };
 
 export default SelectSauce;
