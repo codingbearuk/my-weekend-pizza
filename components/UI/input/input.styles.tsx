@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import colors from "styled/colors";
+import colors from 'styled/colors';
 
 export const Container = styled.div<{}>`
   display: grid;
@@ -27,4 +27,7 @@ export const InputElement = styled.input<{}>`
   outline: none;
   text-align: center;
   color: ${colors.white};
+  ::placeholder {
+    color: ${colors.white};
+  }
 `;

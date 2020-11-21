@@ -51,9 +51,9 @@ const View: FunctionComponent<ViewComponent> = ({ handlers, state, refs }) => {
             )}
           </PizzaLogoContainer>
         )}
-        {state.signInMenuState && <SignInMenu buttonRef={refs.signInButton} />}
-        {state.signUpMenuState && <SignUpMenu buttonRef={refs.signUpButton} />}
       </Container>
+      {state.signInMenuState && <SignInMenu buttonRef={refs.signInButton} />}
+      {state.signUpMenuState && <SignUpMenu buttonRef={refs.signUpButton} />}
       {state.userMenuState && <UserMenu buttonRef={refs.userButton} />}
       {state.mainMenuState && <MainMenu />}
       {state.cartMenuState && <CartMenu />}
