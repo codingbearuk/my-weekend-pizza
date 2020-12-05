@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import { restoreCart, CartItem } from 'redux/actions/cart.action';
 import POST from 'api-comunication/post';
+import { client as WSClient } from 'websocket';
 
 import View from './payment-succes.view';
 
@@ -46,9 +47,20 @@ const PaymentSucces: React.FunctionComponent<PaymentSuccesType> = p => {
     router.push('/');
   }, []);
 
+  const emitWebsocketOrder = useCallback(() => {
+    const client = new WSClient();
+    client.on('connect', connection => {
+      console.info('websocked connected');
+      connection.sendUTF('new order');
+      connection.close();
+    });
+    client.connect('ws://vps-a3dcf2e1.vps.ovh.net:3030/');
+  }, []);
+
   useEffect(() => {
     if (paymentStatus === 'success') {
       handleSaveOrder();
+      emitWebsocketOrder();
     } else {
       handleReBuildShoppingCart();
       handleDeleteCanceledOrder();

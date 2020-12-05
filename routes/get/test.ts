@@ -1,8 +1,8 @@
-import Route from "../route.type";
+import Route from '../route.type';
 
 const test: Route = (req, res) => {
   res.status(200).json({
-    status: "test ok",
+    status: 'test ok',
   });
 };
 

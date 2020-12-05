@@ -4,10 +4,12 @@ import http from 'http';
 import next, { NextApiHandler } from 'next';
 import mongoose from 'mongoose';
 import fileupload from 'express-fileupload';
+import { server as WSServer } from 'websocket';
 
 import getRoutes from './routes/get';
 import postRoutes from './routes/post';
 import deleteRoutes from './routes/delete';
+import websocketRoutes from './websocket-routes';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -38,6 +40,8 @@ class Server {
     this.get();
     this.post();
     this.delete();
+    this.websockets(servApp);
+
     servApp.listen(port, (err?: any) => {
       if (err) throw err;
       console.log(`> Ready on localhost:${port} - env ${process.env.NODE_ENV}`);
@@ -52,7 +56,8 @@ class Server {
     // get sauce
     server.get('/sauce/:sauceID', getRoutes.getOneSauce);
     server.get('/sauces', getRoutes.getSauces);
-    // finnish order
+    // orders
+    server.get('/orders-list', getRoutes.getOrders);
     server.get('/finnish-order/:id', getRoutes.finnishOrder);
     // next routes
     server.get('*', this.handle);
@@ -89,6 +94,23 @@ class Server {
       .connect(process.env.DB_URI, { useNewUrlParser: true })
       .then(() => console.log('connected to database'))
       .catch(err => console.error(err));
+  }
+
+  websockets(server: http.Server) {
+    const wsServer = new WSServer({
+      httpServer: server,
+      autoAcceptConnections: true,
+    });
+    wsServer.on('request', req => {
+      const connection = req.accept();
+      console.info('websocket connection accepted');
+      websocketRoutes.newOrder(connection.emit);
+      connection.on('message', data => {
+        if (data.type === 'utf8') {
+          if (data.utf8Data === 'new order') websocketRoutes.newOrder(connection.emit);
+        }
+      });
+    });
   }
 }
 
