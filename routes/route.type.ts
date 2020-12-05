@@ -1,5 +1,5 @@
-import { Request, Response, Next } from "express";
+import { Request, Response } from "express";
 
-type Route = (req: Request, res: Response, next?: Next) => void;
+type Route = (req: Request, res: Response) => void;
 
 export default Route;
