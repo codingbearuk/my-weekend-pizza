@@ -104,10 +104,10 @@ class Server {
     wsServer.on('request', req => {
       const connection = req.accept();
       console.info('websocket connection accepted');
-      websocketRoutes.newOrder(connection.emit);
+      websocketRoutes.orders(connection.sendUTF);
       connection.on('message', data => {
         if (data.type === 'utf8') {
-          if (data.utf8Data === 'new order') websocketRoutes.newOrder(connection.emit);
+          if (data.utf8Data === 'new order') websocketRoutes.orders(connection.sendUTF);
         }
       });
     });
