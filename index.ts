@@ -4,7 +4,8 @@ import http from 'http';
 import next, { NextApiHandler } from 'next';
 import mongoose from 'mongoose';
 import fileupload from 'express-fileupload';
-import { server as WSServer } from 'websocket';
+// import { server as WSServer } from 'websocket';
+import { Server as IOServer, Socket } from 'socket.io';
 
 import getRoutes from './routes/get';
 import postRoutes from './routes/post';
@@ -97,20 +98,10 @@ class Server {
   }
 
   websockets(server: http.Server) {
-    const wsServer = new WSServer({
-      httpServer: server,
-      autoAcceptConnections: true,
-    });
-    wsServer.on('request', req => {
-      const connection = req.accept();
-      console.info('websocket connection accepted');
-      websocketRoutes.orders(connection.sendUTF);
-      connection.on('message', data => {
-        if (data.type === 'utf8') {
-          if (data.utf8Data === 'new order') websocketRoutes.orders(connection.sendUTF);
-        }
-      });
-    });
+    const io = new IOServer(server, {});
+    io.on('connection', websocketRoutes.connection);
+    io.on('get-orders', websocketRoutes.orders);
+    io.on('new-order', websocketRoutes.orders);
   }
 }
 

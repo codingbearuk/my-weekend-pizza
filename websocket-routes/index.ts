@@ -1,7 +1,7 @@
+import connection from './connection';
 import orders from './orders.websocket';
-import newOrder from './new-order.websocket';
 
 export default {
+  connection,
   orders,
-  newOrder,
 };

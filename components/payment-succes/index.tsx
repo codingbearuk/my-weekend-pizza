@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import { restoreCart, CartItem } from 'redux/actions/cart.action';
 import POST from 'api-comunication/post';
-import { client as WSClient } from 'websocket';
+import io from 'socket.io-client';
 
 import View from './payment-succes.view';
 
@@ -20,13 +20,6 @@ const PaymentSucces: React.FunctionComponent<PaymentSuccesType> = p => {
   const paymentStatus: any = router.query.payment;
 
   const handleSaveOrder = useCallback(async () => {
-    // let req: any;
-    // do {
-    //   req = await POST('/payment/finnish-order', {
-    //     status: 'success',
-    //     id: orderID,
-    //   });
-    // } while (req.status !== 'ok');
     window.localStorage.removeItem(orderID);
   }, []);
 
@@ -48,13 +41,11 @@ const PaymentSucces: React.FunctionComponent<PaymentSuccesType> = p => {
   }, []);
 
   const emitWebsocketOrder = useCallback(() => {
-    const client = new WSClient();
-    client.on('connect', connection => {
-      console.info('websocked connected');
-      connection.sendUTF('new order');
-      connection.close();
+    const socket = io();
+    socket.on('connect', () => {
+      console.info(`io socked connected, your id is: ${socket.id}`);
     });
-    client.connect('ws://vps-a3dcf2e1.vps.ovh.net:3030/');
+    socket.emit('new-order');
   }, []);
 
   useEffect(() => {
