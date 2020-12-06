@@ -100,8 +100,6 @@ class Server {
   websockets(server: http.Server) {
     const io = new IOServer(server, {});
     io.on('connection', websocketRoutes.connection);
-    io.on('get-orders', websocketRoutes.orders);
-    io.on('new-order', websocketRoutes.orders);
   }
 }
 
