@@ -77,9 +77,11 @@ class Server {
     // panel routes
     server.post('/panel/add-pizza', postRoutes.addPizza);
     server.post('/panel/add-sauce', postRoutes.addSauce);
-    // online payment
+    // online order
     server.post('/create-checkout-session', postRoutes.createCheckoutSession);
     server.post('/payment/finnish-order', postRoutes.finnishOrder);
+    server.post('/edit-order-status', postRoutes.editOrderStatus);
+    server.post('/archive-order', postRoutes.archiveOrder);
     // messanges from customers
     server.post('/create-new-message', postRoutes.createNewMessage);
   }

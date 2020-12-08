@@ -10,6 +10,8 @@ import createCheckoutSession from './create-checkout-session';
 import finnishOrder from './finnish-order';
 import updateUserDetails from './update-user-details';
 import createNewMessage from './create-new-message';
+import editOrderStatus from './edit-order-status';
+import archiveOrder from './archive-order';
 
 const index = {
   test,
@@ -24,6 +26,8 @@ const index = {
   finnishOrder,
   updateUserDetails,
   createNewMessage,
+  editOrderStatus,
+  archiveOrder,
 };
 
 export default index;
