@@ -44,8 +44,8 @@ const PaymentSucces: React.FunctionComponent<PaymentSuccesType> = p => {
     const socket = io();
     socket.on('connect', () => {
       console.info(`io socked connected, your id is: ${socket.id}`);
+      socket.emit('new-order');
     });
-    socket.emit('new-order');
   }, []);
 
   useEffect(() => {
