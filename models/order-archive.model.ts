@@ -9,11 +9,11 @@ export interface OrderSchema extends Document {
     postcode: string;
     address: string;
     phone: string;
-    deliveryDate: Date;
   };
   totalPrice: number;
   paymentSuccess: boolean;
   status: string;
+  date: Date;
 }
 
 const archiveOrderSchema = new Schema({

@@ -14,11 +14,11 @@ const archiveOrder: Route = async (req, res) => {
         postcode: removedOrder.address.postcode,
         address: removedOrder.address.address,
         phone: removedOrder.address.phone,
-        deliveryDate: removedOrder.address.deliveryDate,
       },
       totalPrice: removedOrder.totalPrice,
       paymentSuccess: removedOrder.paymentSuccess,
       status: removedOrder.status,
+      date: removedOrder.date,
     };
     const orderToArchive = new OrderArchiveModel(document);
     const archive = await orderToArchive.save();
