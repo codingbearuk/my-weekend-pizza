@@ -5,7 +5,7 @@ import Route from '../../route.type';
 const archiveOrder: Route = async (req, res) => {
   const id: string = req.body.id;
   try {
-    const removedOrder = await OrderModel.findOneAndDelete({ order_id: id });
+    const removedOrder = await OrderModel.findOne({ order_id: id });
     const document = {
       order_id: removedOrder.order_id,
       cart: removedOrder.cart,
@@ -24,10 +24,13 @@ const archiveOrder: Route = async (req, res) => {
     const archive = await orderToArchive.save();
     console.log(archive, orderToArchive);
     if (!archive) throw new Error('could not archive this item');
+
+    await OrderModel.findOneAndDelete({ order_id: id });
     res.status(200).json({
       status: 'ok',
     });
   } catch (err) {
+    console.error(err);
     res.status(500).json({
       status: 'error',
       msg: err,
