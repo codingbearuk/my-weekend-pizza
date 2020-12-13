@@ -8,7 +8,7 @@ const archiveOrder: Route = async (req, res) => {
   try {
     const removedOrder = await OrderModel.findOneAndDelete({ order_id: id });
     if (!removedOrder) throw new Error('could not delete this item');
-    const orderToArchive = new orderArchiveModel(removedOrder);
+    const orderToArchive = new OrderArchiveModel(removedOrder);
     const archive = await orderToArchive.save();
     if (!archive) throw new Error('could not archive this item');
     res.status(200).json({
