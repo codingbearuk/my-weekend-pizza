@@ -16,7 +16,7 @@ export interface OrderSchema extends Document {
   status: string;
 }
 
-const orderSchema = new Schema({
+const archiveOrderSchema = new Schema({
   order_id: { type: String, required: true },
   cart: { type: Array, required: true },
   address: { type: Object, required: true },
@@ -26,4 +26,4 @@ const orderSchema = new Schema({
   date: { type: String, required: true },
 });
 
-export default mongoose.model<OrderSchema>('archive-order', orderSchema);
+export default mongoose.model<OrderSchema>('archiveOrder', archiveOrderSchema);
