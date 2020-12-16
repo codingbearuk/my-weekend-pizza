@@ -6,5 +6,6 @@
     "noEmit": false,
     "baseUrl": "./"
   },
-  "include": ["server"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
