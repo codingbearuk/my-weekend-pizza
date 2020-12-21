@@ -60,6 +60,8 @@ class Server {
     // orders
     server.get('/orders-list', getRoutes.getOrders);
     server.get('/finnish-order/:id', getRoutes.finnishOrder);
+    // images
+    server.get('/images', getRoutes.getAllImages);
     // next routes
     server.get('*', this.handle);
   }
