@@ -18,16 +18,31 @@ const pizzaPhotoUpload: Route = (req, res) => {
       });
     }
 
-    const uploadPath: string = path.join(
-      __dirname,
-      '../',
-      '../',
-      '../',
-      'public',
-      'images',
-      'pizzas',
-      file.name
-    );
+    let uploadPath: string;
+    if (process.env.NODE_ENV === 'development'){
+      uploadPath = path.join(
+        __dirname,
+        '../',
+        '../',
+        '../',
+        'public',
+        'images',
+        'pizzas',
+        file.name
+      );
+    } else {
+      uploadPath = path.join(
+        __dirname,
+        '../',
+        '../',
+        '../',
+        '../',
+        'public',
+        'images',
+        'pizzas',
+        file.name
+      );
+    }
     file.mv(uploadPath, err => {
       if (err) error = true;
     });
