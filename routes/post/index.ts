@@ -12,6 +12,7 @@ import updateUserDetails from './update-user-details';
 import createNewMessage from './create-new-message';
 import editOrderStatus from './edit-order-status';
 import archiveOrder from './archive-order';
+import setMessageAsRead from './set-message-as-read'
 
 const index = {
   test,
@@ -28,6 +29,7 @@ const index = {
   createNewMessage,
   editOrderStatus,
   archiveOrder,
+  setMessageAsRead
 };
 
 export default index;

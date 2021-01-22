@@ -86,8 +86,9 @@ class Server {
     server.post('/payment/finnish-order', postRoutes.finnishOrder);
     server.post('/edit-order-status', postRoutes.editOrderStatus);
     server.post('/archive-order', postRoutes.archiveOrder);
-    // messanges from customers
+    // messages from customers
     server.post('/create-new-message', postRoutes.createNewMessage);
+    server.post('/set-msg-as-read', postRoutes.setMessageAsRead);
   }
 
   delete() {
