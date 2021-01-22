@@ -62,6 +62,8 @@ class Server {
     server.get('/finnish-order/:id', getRoutes.finnishOrder);
     // images
     server.get('/images', getRoutes.getAllImages);
+    // messages
+    server.get('/messages', getRoutes.getMessages);
     // next routes
     server.get('*', this.handle);
   }

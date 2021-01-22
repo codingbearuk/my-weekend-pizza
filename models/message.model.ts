@@ -1,5 +1,13 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
+export interface Message {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  new: boolean;
+}
+
 export interface MessageSchema extends Document {
   name: string;
   email: string;

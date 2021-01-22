@@ -6,6 +6,7 @@ import getSauces from './get-sauces';
 import finnishOrder from './finnish-order';
 import getOrders from './get-orders';
 import getAllImages from './get-all-images';
+import getMessages from './get-messages'
 
 const index = {
   test,
@@ -16,6 +17,7 @@ const index = {
   finnishOrder,
   getOrders,
   getAllImages,
+  getMessages
 };
 
 export default index;
