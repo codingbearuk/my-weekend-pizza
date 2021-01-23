@@ -95,6 +95,7 @@ class Server {
     server.delete('/test', deleteRoutes.test);
     server.delete('/pizza', deleteRoutes.deletePizza);
     server.delete('/sauce', deleteRoutes.deleteSauce);
+    server.delete('/message', deleteRoutes.deleteMessage);
   }
 
   database() {
