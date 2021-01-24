@@ -64,6 +64,8 @@ class Server {
     server.get('/images', getRoutes.getAllImages);
     // messages
     server.get('/messages', getRoutes.getMessages);
+    // archive
+    server.get('/archive', getRoutes.getArchive);
     // next routes
     server.get('*', this.handle);
   }
