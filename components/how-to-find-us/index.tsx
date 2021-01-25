@@ -8,8 +8,8 @@ const HowToFindUs: React.FunctionComponent<{ id: string }> = p => {
     address: '2 Queen St',
     postcode: 'LL11 1AP',
     city: 'Wrexham',
-    phone: '+44 0000 00 00',
-    email: 'example@email.com',
+    phone: '+44 7804492329',
+    email: 'piotrserafin98@gmail.com ',
   };
 
   return View({ details, id: p.id });

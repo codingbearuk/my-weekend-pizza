@@ -71,7 +71,7 @@ const View: React.FunctionComponent<ViewType> = p => {
         {p.isSent && <SentMsg>{language.footer.inputs.sent}</SentMsg>}
       </Content>
       <Footer>
-        website created by <a href='https://coding-bear.co.uk/'>coding-bear.co.uk</a> || all rights reserved
+        website created by <a href='https://coding-bear.co.uk/'>Kamil Pieczyk</a> || all rights reserved
       </Footer>
     </Container>
   );
