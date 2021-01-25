@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import colors from 'styled/colors';
 
 export const Container = styled.div<{
@@ -15,6 +15,10 @@ export const Container = styled.div<{
   transform: translateX(-50%);
   overflow: hidden;
   height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: 500px) {
     width: 90vw;
