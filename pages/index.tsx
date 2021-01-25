@@ -1,5 +1,6 @@
 import React from 'react';
 import { NextPage } from 'next';
+import Head from 'next/head';
 import { useSelector } from 'react-redux';
 import { RootState } from 'redux/reducers/index';
 import GET from 'api-comunication/get';
@@ -21,7 +22,10 @@ const IndexPage: NextPage<{ pizzas: any; sauces: any; payment?: any }> = p => {
 
   return (
     <BasicLayout>
-      <title>My weekend pizza</title>
+      <Head>
+        <title>My weekend pizza</title>
+        <link rel="shortcut icon" href="/images/pizza-logo@2x.png" />
+      </Head>
       <Navbar />
       <WelcomeScreen />
       <SelectPizza pizzas={p.pizzas} id='pizzas' />
