@@ -1,30 +1,30 @@
 Arguments: 
-  /home/kamil/.nvm/versions/node/v12.13.1/bin/node /home/kamil/.nvm/versions/node/v12.13.1/bin/yarn dev
+  /usr/bin/node /usr/bin/yarn add locationQ
 
 PATH: 
-  /home/kamil/Pulpit/projects/my weekend pizza/node_modules/.bin:/tmp/yarn--1608121067913-0.8145328495616837:/home/kamil/Pulpit/projects/my weekend pizza/node_modules/.bin:/home/kamil/.config/yarn/link/node_modules/.bin:/home/kamil/.yarn/bin:/home/kamil/.nvm/versions/node/v12.13.1/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/kamil/.nvm/versions/node/v12.13.1/lib/node_modules/npm/bin/node-gyp-bin:/home/kamil/.nvm/versions/node/v12.13.1/bin/node_modules/npm/bin/node-gyp-bin:/home/kamil/.nvm/versions/node/v12.13.1/bin:/home/kamil/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Python39/Scripts/:/mnt/c/Python39/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Users/kamil/AppData/Roaming/nvm:/mnt/c/Program Files/nodejs:/mnt/c/Program Files (x86)/GitHub CLI/gh.exe:/mnt/c/Users/kamil/.windows-build-tools/python27/:/mnt/c/Users/kamil/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/kamil/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/kamil/AppData/Roaming/npm:/mnt/c/Users/kamil/.dotnet/tools:/mnt/c/Program Files (x86)/GitHub CLI/
 
 Yarn version: 
-  1.21.1
+  1.22.10
 
 Node version: 
-  12.13.1
+  12.20.0
 
 Platform: 
   linux x64
 
 Trace: 
-  Error: EIO: i/o error, write
-      at writeSync (fs.js:581:3)
-      at SyncWriteStream._write (internal/fs/sync_write_stream.js:22:3)
-      at doWrite (_stream_writable.js:431:12)
-      at writeOrBuffer (_stream_writable.js:415:5)
-      at SyncWriteStream.Writable.write (_stream_writable.js:305:11)
-      at ConsoleReporter._log (/home/kamil/.nvm/versions/node/v12.13.1/lib/node_modules/yarn/lib/cli.js:96691:17)
-      at ConsoleReporter.log (/home/kamil/.nvm/versions/node/v12.13.1/lib/node_modules/yarn/lib/cli.js:96679:10)
-      at ConsoleReporter.command (/home/kamil/.nvm/versions/node/v12.13.1/lib/node_modules/yarn/lib/cli.js:96708:10)
-      at /home/kamil/.nvm/versions/node/v12.13.1/lib/node_modules/yarn/lib/cli.js:34545:16
-      at Generator.next (<anonymous>)
+  Error: https://registry.yarnpkg.com/locationQ: Not found
+      at Request.params.callback [as _callback] (/usr/lib/node_modules/yarn/lib/cli.js:66988:18)
+      at Request.self.callback (/usr/lib/node_modules/yarn/lib/cli.js:140662:22)
+      at Request.emit (events.js:314:20)
+      at Request.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141634:10)
+      at Request.emit (events.js:314:20)
+      at IncomingMessage.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141556:12)
+      at Object.onceWrapper (events.js:420:28)
+      at IncomingMessage.emit (events.js:326:22)
+      at endReadableNT (_stream_readable.js:1241:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21)
 
 npm manifest: 
   {
