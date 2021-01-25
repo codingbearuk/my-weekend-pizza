@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'redux/reducers';
 import { FilterLeft } from 'react-bootstrap-icons';
 import language from 'language-sources';
+import {BoxArrowInRight, BoxArrowInDownLeft} from 'react-bootstrap-icons'
 
 import { ViewComponent } from './@navbar.t';
 import { Container, PizzaLogoContainer } from './navbar.styles';
@@ -32,11 +33,11 @@ const View: FunctionComponent<ViewComponent> = ({ handlers, state, refs }) => {
         ) : (
           <>
             <div ref={refs.signInButton}>
-              <Button text={language.navbar.signIn} onClick={handlers.handleSignInMenuButton} />
+              <Button mobile={device === 'mobile'} icon='BoxArrowRight' title={language.navbar.signIn} text={language.navbar.signIn} onClick={handlers.handleSignInMenuButton} />
             </div>
             <Separator width={20} />
             <div ref={refs.signUpButton}>
-              <Button text={language.navbar.signUp} onClick={handlers.handleSignUpMenuButton} />
+              <Button mobile={device === 'mobile'} icon='BoxArrowInRight' title={language.navbar.signUp} text={language.navbar.signUp} onClick={handlers.handleSignUpMenuButton} />
             </div>
           </>
         )}
