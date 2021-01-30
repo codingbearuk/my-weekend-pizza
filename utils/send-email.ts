@@ -1,5 +1,4 @@
 import { createTransport } from 'nodemailer';
-import smtpTransport from 'nodemailer-smtp-transport';
 import { config } from 'dotenv';
 
 config();
