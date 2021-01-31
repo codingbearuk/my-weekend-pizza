@@ -1,7 +1,9 @@
-import Route from "../../route.type";
-import bcrypt from "bcrypt";
+import Route from '../../route.type';
+import bcrypt from 'bcrypt';
 
-import UserModel from "../../../models/user.model";
+import UserModel from '../../../models/user.model';
+import sendEmail from '../../../utils/send-email';
+import template from './html-template';
 
 const register: Route = async (req, res) => {
   const { email, password, address, city, postcode, phone } = req.body;
@@ -11,8 +13,8 @@ const register: Route = async (req, res) => {
 
   if (isUserExist) {
     res.status(200).json({
-      status: "error",
-      msg: "email alredy exist in database",
+      status: 'error',
+      msg: 'email alredy exist in database',
     });
   } else {
     const newUser = new UserModel({
@@ -25,7 +27,8 @@ const register: Route = async (req, res) => {
     });
     try {
       const save = await newUser.save();
-      res.status(200).json({ status: "ok", save });
+      sendEmail(email, 'Welcome to My Weekend Pizza', template);
+      res.status(200).json({ status: 'ok', save });
     } catch (err) {
       console.error(err);
       res.status(500);
