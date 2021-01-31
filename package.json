@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "NODE_ENV=development ts-node --project tsconfig.server.json index.ts",
+    "devWin": "SET NODE_ENV=development&&ts-node --project tsconfig.server.json index.ts",
     "serv": "nodemon --exec yarn dev",
     "build:server": "tsc --project tsconfig.server.json",
     "build:next": "next build",

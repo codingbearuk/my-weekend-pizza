@@ -9,7 +9,7 @@ const HowToFindUs: React.FunctionComponent<{ id: string }> = p => {
     postcode: 'LL11 1AP',
     city: 'Wrexham',
     phone: '+44 7804492329',
-    email: 'piotrserafin98@gmail.com ',
+    email: 'contact@myweekendpizza.co.uk',
   };
 
   return View({ details, id: p.id });
