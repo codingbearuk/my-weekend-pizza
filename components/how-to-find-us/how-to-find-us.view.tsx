@@ -33,9 +33,9 @@ const View: React.FunctionComponent<ViewType> = p => {
         </MapContainer>
         <DetailsContainer>
           <h2>{p.details.title}</h2>
-          <h3>{p.details.address}</h3>
+          {/* <h3>{p.details.address}</h3>
           <h3>{p.details.city}</h3>
-          <h3>{p.details.postcode}</h3>
+          <h3>{p.details.postcode}</h3> */}
           <Separator height={30} />
           <div>
             <PhoneFill />
